@@ -1,23 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "../css/style.css"
+
 
 const Home = () => {
     return (
-            <div className="container">
+            <div className="container main">
+                <h1 className='title'> Select Game Mode </h1>
                 <div className="row">
-
-                    <div className="col-sm-10 col-md-5 col-md-offset-2">
+                    <div className="col-sm-12 col-md-6 col-lg-6">
                         <div className="card">
+                            <h5 className="card-header">Guess it!</h5>
                             <div className="card-body">
-                                <Link to='/'>Game mode 1</Link>
+                                <div className='card-text'>Guess (or if you know it) where the flag belongs</div>
+                                <Link to='/GuessTheFlag'>
+                                    <button type="button" class="btn btn-primary">Play</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-2">
+                    <div className="col-sm-12 col-md-6 col-lg-6">
                         <div className="card">
+                            <h5 className="card-header">Place it!</h5>
                             <div className="card-body">
-                                <Link to='/'>Game mode 2</Link>
+                                <div className='card-text'>Guess (or if you know it) where the flag belongs</div>
+                                <Link to='/'>
+                                    <button type="button" className="btn btn-primary">Play</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
