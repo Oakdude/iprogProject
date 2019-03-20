@@ -1,0 +1,40 @@
+.main {
+    padding-top: 50px;
+}
+
+.card {
+   margin-bottom: 10px;
+    opacity: .8;
+    text-align: center;
+}
+
+.card .card-img-top {
+    height: 60px;
+    width: 60px;
+}
+
+.card-text {
+    padding-bottom: 10px;
+}
+
+.title {
+    text-align: center;
+    padding-top: 20px;
+    color: #f8fae5;
+}
+
+.cardButton {
+    opacity: .8;
+}
+
+.cardButton :hover {
+    text-decoration: none;
+    opacity: 1;
+}
+
+.subtitle {
+    text-align: center;
+    padding-top: 20px;
+    color: #f8fae5;
+    text-decoration: underline;
+}
