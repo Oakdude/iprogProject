@@ -10,11 +10,11 @@ const Home = () => {
                 <div className="row">
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         <div className="card">
-                            <h5 className="card-header">Guess it!</h5>
+                            <h5 className="card-header">Name it!</h5>
                             <div className="card-body">
                                 <div className='card-text'>Guess (or if you know it) where the flag belongs</div>
-                                <Link to='/GuessTheFlag'>
-                                    <button type="button" class="btn btn-primary">Play</button>
+                                <Link to='/NameTheFlag'>
+                                    <button type="button" className="btn btn-primary">Play</button>
                                 </Link>
                             </div>
                         </div>
