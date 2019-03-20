@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar'
 import GuessTheFlag from './components/guessTheFlag/GuessTheFlag'
 import GuessTheFlagGame from './components/guessTheFlag/GuessTheFlagGame'
 import Home from './components/home/Home'
+import UserScore from './components/Scores/UserScore'
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/GuessTheFlag" render={()=><GuessTheFlag/>} />
               <Route path="/GuessTheFlagGame" render={()=><GuessTheFlagGame/>} />
+              <Route path="/UserScore" render={()=><UserScore/>} />
             </Switch>
           </div>
         </BrowserRouter>

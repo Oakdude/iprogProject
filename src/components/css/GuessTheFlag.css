@@ -27,3 +27,9 @@
         width: 80vw;
     }
 }
+
+.options {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}

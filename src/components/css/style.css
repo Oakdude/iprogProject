@@ -31,3 +31,10 @@
     text-decoration: none;
     opacity: 1;
 }
+
+.subtitle {
+    text-align: center;
+    padding-top: 20px;
+    color: #f8fae5;
+    text-decoration: underline;
+}
