@@ -3,6 +3,12 @@ import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import errorImage from "../images/error.png"
+import asiaImg from "../regionImages/Asia.jpeg"
+import europeImg from "../regionImages/Europe.jpeg"
+import africaImg from "../regionImages/Africa.jpeg"
+import southamericaImg from "../regionImages/SouthAmerica.jpeg"
+
+
 
 
 const Continents = () => {
@@ -14,7 +20,7 @@ const Continents = () => {
                     <div className="card">
                         <Link to={{pathname: "NameTheFlagGame/" + "Africa"}}>
                             <h5 className="card-header">Africa</h5>
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={africaImg} alt="Card image cap"/>
                         </Link>
                     </div>
                 </div>
@@ -24,7 +30,7 @@ const Continents = () => {
                     <div className="card">
                         <Link to={{pathname: "NameTheFlagGame/" + "Americas"}}>
                             <h5 className="card-header">Americas</h5>
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={southamericaImg} alt="Card image cap"/>
                         </Link>
                     </div>
                 </div>
@@ -34,7 +40,7 @@ const Continents = () => {
                     <div className="card">
                         <Link to={{pathname: "NameTheFlagGame/" + "Asia"}}>
                             <h5 className="card-header">Asia</h5>
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={asiaImg} alt="Card image cap"/>
                         </Link>
                     </div>
                 </div>
@@ -44,7 +50,7 @@ const Continents = () => {
                     <div className="card">
                         <Link to={{pathname: "NameTheFlagGame/" + "Europe"}}>
                             <h5 className="card-header">Europe</h5>
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={europeImg} alt="Card image cap"/>
                         </Link>
                     </div>
                 </div>

@@ -30,7 +30,12 @@ class NameTheFlagGame extends Component {
     }
 
       fetchCountries() {
+        console.log("chosen continent: ", this.state.continent);
+        if(this.state.continent == "World"){
+            var url = "https://restcountries.eu/rest/v2/all"
+        } else {
         var url = "https://restcountries.eu/rest/v2/region/" + this.state.continent;
+        }
         fetch(url)
             .then(this.processResponse)
             .then(data => {
@@ -72,7 +77,12 @@ class NameTheFlagGame extends Component {
       }
 
       fetchdata() { //unused function
+        console.log(this.state.continent);
+        if(this.state.continent == "world"){
+            var url = "https://restcountries.eu/rest/v2/all"
+        }else {
         var url = "https://restcountries.eu/rest/v2/region/" + this.state.continent;
+        }
         fetch(url)
             .then(this.processResponse)
             .then(data => {
@@ -135,9 +145,9 @@ class NameTheFlagGame extends Component {
                     <div id="options" className='row'>
 
                         <div className='col-md-6 options'>
-                            <Link to='/UserScore'>
+                            
                                 <button type="button" className="btn btn-info">{wrong[0]}</button>
-                            </Link>
+                           
                         </div>
                         <div className='col-md-6 options'>
                             <button type="button" className="btn btn-info">{wrong[1]}</button>
