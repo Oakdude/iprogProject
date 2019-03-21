@@ -13,15 +13,8 @@ A score will also be stored.
 
 So far we've implemented the skeleton and are working on the gameplay logic for guess the flag (21. march).
 
-###iProgProject
-
-|_public
-|_src
-    |_components
-
-
-public contains the index.html that gets deployed. 
-Components contains all the react components for the UI
+the public directory contains the index.html that gets deployed. 
+Under src, the Components directory contains all the react components for the UI.
 
 
 ## What we still plan to do
