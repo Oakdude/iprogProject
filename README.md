@@ -6,13 +6,27 @@ A score will also be stored.
 
 ## Link to project
 
-[I'm an inline-style link with title](https://flagmaster-ea8b8.firebaseapp.com/ "Project can be found here:")
+[Project can be found here](https://flagmaster-ea8b8.firebaseapp.com/ "Firebase App: Flagmaster")
 
 
 ## What we've done
 
+So far we've implemented the skeleton and are working on the gameplay logic for guess the flag (21. march).
+
+###iProgProject
+
+|_public
+|_src
+    |_components
 
 
+public contains the index.html that gets deployed. 
+Components contains all the react components for the UI
+
+
+## What we still plan to do
+
+First of all we want to finish implementing both gameplays. Then move on to more permanent storage for high scores and such. We will do some code refactoring continuously for improvements as we go along.
 
 ## To run
 ### `npm install`
