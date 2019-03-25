@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-router-dom": "^4.4.0",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {
@@ -34,5 +35,10 @@
   "bugs": {
     "url": "https://github.com/Oakdude/iprogProject/issues"
   },
-  "homepage": "https://github.com/Oakdude/iprogProject#readme"
+  "homepage": ".",
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.3.0"
+  }
 }
