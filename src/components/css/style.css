@@ -3,14 +3,16 @@
 }
 
 .card {
+    width: 250px;
    margin-bottom: 10px;
+
     opacity: .8;
     text-align: center;
+    
 }
 
 .card .card-img-top {
-    height: 60px;
-    width: 60px;
+    height: 220px;
 }
 
 .card-text {
@@ -37,4 +39,17 @@
     padding-top: 20px;
     color: #f8fae5;
     text-decoration: underline;
+}
+
+#nameitCard{
+    color:black;
+    margin-top: 100px;
+    float: right;
+    margin-right: 50px;
+}
+#placeitCard{
+    color: red;
+    margin-top: 100px;
+    float: left;
+    margin-left: 50px;
 }

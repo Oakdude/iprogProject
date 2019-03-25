@@ -11,7 +11,7 @@ const Selection = () => {
             <h1 className='title'>Choose A Continent!</h1>
             <div className='row'>
                 <Link to='/' className='returnButton'>
-                    <button type="button" class="btn btn-primary">Choose another game</button>
+                    <button type="button" className="btn btn-primary">Choose another game</button>
                 </Link>
             </div>
             <Continents />
