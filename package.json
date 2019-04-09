@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^4.4.0",
+    "react-scripts": "2.1.8",
+    "react-simple-maps": "^0.12.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,10 +35,5 @@
   "bugs": {
     "url": "https://github.com/Oakdude/iprogProject/issues"
   },
-  "homepage": ".",
-  "devDependencies": {
-    "dotenv": "^7.0.0",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.3.0"
-  }
+  "homepage": "https://github.com/Oakdude/iprogProject#readme"
 }

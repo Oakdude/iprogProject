@@ -2,17 +2,33 @@
     padding-top: 50px;
 }
 
-.card {
-    width: 250px;
-   margin-bottom: 10px;
-
+.selectscreen .card {
+    width: 335px;
+    margin-bottom: 10px;
     opacity: .8;
     text-align: center;
     
 }
 
+
+.card {
+    width: 250px;
+   margin-bottom: 10px;
+    transition: transform .2s;
+    opacity: .9;
+    text-align: center;
+    border: 0;
+    margin-right:0;
+}
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}
 .card .card-img-top {
     height: 220px;
+}
+.selectscreen .card-img-top {
+    height: auto;
 }
 
 .card-text {
@@ -21,12 +37,12 @@
 
 .title {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 15px;
     color: #f8fae5;
 }
 
 .cardButton {
-    opacity: .8;
+    margin-bottom: 60px;
 }
 
 .cardButton :hover {

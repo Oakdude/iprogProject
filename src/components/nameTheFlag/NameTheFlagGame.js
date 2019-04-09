@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
-import Flags from './Flags'
 import Options from './Options'
 
 
@@ -134,35 +133,42 @@ class NameTheFlagGame extends Component {
                 console.log(wrong);
 
                 page = 
-                <div> 
+                <div id="game1div"> 
                     <div id="flag" className='row '>
                         <div className='flag'>
                             <img src={countryFlag} className="img-fluid" alt="Responsive image" />
                         </div>
                     </div>
                 
-               
+
                     <div id="options" className='row'>
 
-                        <div className='col-md-6 options'>
+                        <div className='col-md-6 col-sm-6 options'>
                             
-                                <button type="button" className="btn btn-info">{wrong[0]}</button>
+                                <button id="btn1" type="button" className="btn btn-info">{wrong[0]}</button>
                            
                         </div>
-                        <div className='col-md-6 options'>
-                            <button type="button" className="btn btn-info">{wrong[1]}</button>
+                        <div className='col-md-6 col-sm-6 options'>
+                            <button id="btn2" type="button" className="btn btn-info">{wrong[1]}</button>
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col-md-6 options'>
-                            <button type="button" className="btn btn-info">{countryName}</button>
+                        <div className='col-md-6 col-sm-6 options'>
+                            <button id="btn3" type="button" className="btn btn-info">{countryName}</button>
                         </div>
-                        <div className='col-md-6 options'>
-                            <button type="button" className="btn btn-info">{wrong[2]}</button>
+                        <div className='col-md-6 col-sm-6 options'>
+                            <button id="btn4" type="button" className="btn btn-info">{wrong[2]}</button>
+                        </div>
+                    </div>
+                    <div className="progress">
+                        <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10"
+                        aria-valuemin="10" aria-valuemax="100">
+                        1/10
                         </div>
                     </div>
                 </div>
 
+                
 
             
 
@@ -175,15 +181,18 @@ class NameTheFlagGame extends Component {
 
         return (
             <div className="container main">
-                <div className='title'><h3>{this.state.continent}</h3></div>
+                
                 <div className='row returnButton'>
+                    <div className="col-md-3">
                     <Link to='/'>
-                        <button type="button" className="btn btn-primary">Back</button>
+                        <button type="button" className="btn btn-danger">Exit Game</button>
                     </Link>
-                    <Link to='/'>
-                        <button type="button" className="btn btn-primary">Start Again</button>
-                    </Link>
+                    </div>
+                    <div className='title col-md-6'><h3>Name the flag: {this.state.continent}!</h3></div>
+                    <div className="col-md-3"></div>
                 </div>
+                
+                
                 <div>{page}</div>
                 
             </div>
