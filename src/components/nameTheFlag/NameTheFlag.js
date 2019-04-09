@@ -1,18 +1,24 @@
 import React from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
-import Continents from './Continents'
+import Continents from '../continents/Continents'
 import {Link} from "react-router-dom";
 
 
 const Selection = () => {
     return (
         <div className="container main">
-            <h1 className='title'>Choose A Continent!</h1>
-            <div className='row'>
-                <Link to='/' className='returnButton'>
-                    <button type="button" className="btn btn-primary">Choose another game</button>
-                </Link>
+       
+            <div className='row returnButton'>  
+                <div className="col-md-3">
+                    <Link to='/'>
+                    <button type="button" className="btn btn-danger">Exit Game</button>
+                    </Link>
+                </div>
+                <div className='title col-md-6'>
+                    <h3>Choose A Continent!</h3>
+                </div>
+                <div className="col-md-3"></div>
             </div>
             <Continents />
         </div>
@@ -20,3 +26,4 @@ const Selection = () => {
 }
 
 export default Selection;
+

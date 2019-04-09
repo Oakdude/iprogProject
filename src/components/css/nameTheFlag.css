@@ -1,7 +1,7 @@
 .returnButton {
     text-align: center;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 40px;
 
 }
 
@@ -17,14 +17,21 @@
 }
 
 .flag {
+    
     width: 30vw;
+    min-width: 580px;
     text-align: center;
     margin: auto;
 }
+.flag img{
+    max-height: 350px;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .flag{
+        min-width: 100px;
         width: 80vw;
+        
     }
 }
 
@@ -32,4 +39,41 @@
     text-align: center;
     margin: auto;
     padding: 20px;
+}
+#game1div {
+    padding: 40px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3)
+}
+
+#game1div button{
+    margin: 0;
+    width: 250px;
+    height: 80px;
+}
+#btn1, #btn3 {
+    float: right;
+    margin-right: 0px;
+}
+#btn2, #btn4 {
+    float: left;
+    margin-left: 0px;
+}
+
+@media only screen and (max-width: 800px) {
+    #game1div button{
+
+        width: 80%;
+        min-height: 80px;
+        height: 100%;
+        float: none;
+        margin:0;
+    }
+}
+.progress {
+    margin-top: 20px;
+}
+.progress-bar {
+    width: 10%;
+    color: black;
 }

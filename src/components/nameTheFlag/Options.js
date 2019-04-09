@@ -2,7 +2,7 @@ import React from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
-import placeHolder from "../images/flags/Aussie.png"
+
 
 
 const Flags = () => {
