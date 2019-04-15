@@ -1,0 +1,95 @@
+.main {
+    padding-top: 50px;
+}
+
+.selectscreen .card {
+    width: 335px;
+    margin-bottom: 10px;
+    opacity: .8;
+    text-align: center;
+
+
+}
+
+
+.card {
+    width: 250px;
+   margin-bottom: 10px;
+    transition: transform .2s;
+    opacity: .9;
+    text-align: center;
+    border: 0;
+
+    margin-right:0;
+}
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transform: scale(1.01);
+    opacity: 1;
+}
+.card .card-img-top {
+    height: 220px;
+}
+.selectscreen .card-img-top {
+    height: auto;
+}
+
+.card-text {
+    padding-bottom: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 250%;
+    margin-bottom: 50px;
+    padding-top: 15px;
+    color: #f8fae5;
+}
+
+.title2 {
+    text-align: center;
+    font-size: 180%;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    color: #f8fae5;
+}
+
+
+.cardButton {
+    margin-bottom: 60px;
+    margin-left: 15%;
+}
+
+.cardButton :hover {
+    text-decoration: none;
+    opacity: 1;
+}
+
+#gameTimer {
+
+
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 40px;
+
+}
+
+.subtitle {
+    text-align: center;
+    padding-top: 20px;
+    color: #f8fae5;
+    text-decoration: underline;
+}
+
+#nameitCard{
+    color:black;
+    margin-top: 100px;
+    float: right;
+    margin-right: 50px;
+}
+#placeitCard{
+    color: red;
+    margin-top: 100px;
+    float: left;
+    margin-left: 50px;
+}

@@ -1,0 +1,111 @@
+.returnButton {
+    text-align: center;
+    margin: left;
+    padding-top: 20px;
+
+
+}
+
+.returnButton .btn {
+    margin: 10px;
+  float: left;
+    margin-bottom: 40px ;
+}
+
+.questionTitle {
+    padding-top: 20px;
+   color: #10150e;
+    text-align: center;
+}
+
+.flag {
+
+    width: 30vw;
+    min-width: 580px;
+    text-align: center;
+    margin: auto;
+}
+.flag img{
+    max-height: 350px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+@media only screen and (max-width: 800px) {
+    .flag{
+        min-width: 100px;
+        width: 80vw;
+
+    }
+}
+
+.options {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+#game1div {
+    padding: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3)
+}
+
+#game1div button{
+    margin: 0;
+    width: 250px;
+    height: 80px;
+}
+#btn1, #btn3 {
+    float: right;
+
+    margin-right: 0px;
+}
+#btn2, #btn4 {
+    float: left;
+
+    margin-left: 0px;
+
+}
+
+#btn1:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform .2s;
+    transform: scale(1.2);
+}
+
+#btn2:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
+}
+#btn3:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
+}
+#btn4:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 800px) {
+    #game1div button{
+
+        width: 80%;
+        min-height: 80px;
+        height: 80%;
+        float: none;
+        margin:0;
+    }
+}
+.progress {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.progress-bar {
+    width: 10%;
+    color: black;
+}
