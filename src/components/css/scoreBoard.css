@@ -1,0 +1,22 @@
+.table {
+
+}
+
+.table tr {
+    background-color: white;
+    opacity: .8;
+}
+
+.table tr:hover {
+    opacity: 1;
+}
+
+.row {
+    text-align: center;
+    margin: auto;
+}
+
+.backButton {
+    text-align: center;
+    margin: auto;
+}
