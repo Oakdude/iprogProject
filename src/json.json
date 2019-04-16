@@ -1,0 +1,59 @@
+{
+    "nameTheFlag": {
+
+      "africa": {
+        "name": "Gretzel",
+        "time": "2:43"
+      },
+      "americas": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "asia": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "europe": {
+        "name": "Testy",
+        "time": "5:55"
+       },
+      "oceania": {
+        "name": "Testy",
+        "time": "5:55"
+       },
+      "world": { 
+        "name": "Testy",
+        "time": "5:55"
+      }
+  
+    },
+
+    "placeTheFlag": {
+
+      "africa": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "americas": { 
+        "name": "Bush",
+        "time": "9:11"
+      },
+      "asia": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "europe": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "oceania": { 
+        "name": "Testy",
+        "time": "5:55"
+      },
+      "world": { 
+        "name": "Testy",
+        "time": "5:55"
+      }
+
+    }
+  }

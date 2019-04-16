@@ -20,7 +20,7 @@ const Home = () => {
                         <div className="card text-white bg-info mb-3" id="nameitCard">
                             
                             
-                        <img class="card-img-top" src={nameitflag} alt="Card image cap"></img>
+                        <img className="card-img-top" src={nameitflag} alt="Card cap"></img>
                             <div className="card-body">
                             
                             <h4>NAME THE FLAG!</h4>
@@ -40,7 +40,7 @@ const Home = () => {
                         <Link to='/PlaceTheFlag'>
                         <div className="card text-white bg-danger mb-3" id="placeitCard">
                             
-                            <img class="card-img-top" src={placeitflag} alt="Card image cap"></img>
+                            <img className="card-img-top" src={placeitflag} alt="Card cap"></img>
                             <div className="card-body">
                                 <h4>PLACE THE FLAG!</h4>
                                 <div className='card-text'>This game mode is not done, so dont you dare try this one. Open your eyes and look to the left, there you have a somewhat playable mode (That is actually not even close to playable).</div>

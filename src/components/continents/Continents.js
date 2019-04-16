@@ -21,7 +21,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "Africa"}}>
                             
-                            <img className="card-img-top" src={africaImg} alt="Card image cap"/>
+                            <img className="card-img-top" src={africaImg} alt="Card cap"/>
                             <h5 className="card-header text-white">Africa</h5>
                         </Link>
                     </div>
@@ -32,7 +32,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "Americas"}}>
                             
-                            <img className="card-img-top" src={southamericaImg} alt="Card image cap"/>
+                            <img className="card-img-top" src={southamericaImg} alt="Card cap"/>
                             <h5 className="card-header text-white">Americas</h5>
                         </Link>
                     </div>
@@ -43,7 +43,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "Asia"}}>
                             
-                            <img className="card-img-top" src={asiaImg} alt="Card image cap"/>
+                            <img className="card-img-top" src={asiaImg} alt="Card cap"/>
                             <h5 className="card-header text-white">Asia</h5>
                         </Link>
                     </div>
@@ -56,7 +56,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "Europe"}}>
                             
-                            <img className="card-img-top" src={europeImg} alt="Card image cap"/>
+                            <img className="card-img-top" src={europeImg} alt="Card cap"/>
                             <h5 className="card-header text-white">Europe</h5>
                         </Link>
                     </div>
@@ -67,7 +67,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "Oceania"}}>
                             
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={errorImage} alt="Card cap"/>
                             <h5 className="card-header text-white">Oceania</h5>
                         </Link>
                     </div>
@@ -78,7 +78,7 @@ const Continents = () => {
                     <div className="card text-white bg-dark mb-3">
                         <Link to={{pathname: "NameTheFlagGame/" + "World"}}>
                             
-                            <img className="card-img-top" src={errorImage} alt="Card image cap"/>
+                            <img className="card-img-top" src={errorImage} alt="Card cap"/>
                             <h5 className="card-header text-white">World</h5>
                         </Link>
                     </div>
