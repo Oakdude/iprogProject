@@ -23,5 +23,6 @@ First of all we want to finish implementing both gameplays. Then move on to more
 
 ## To run
 ### `npm install`
+### `npm install firebase`
 ### `npm start`
 

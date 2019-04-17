@@ -12,7 +12,7 @@ class Scoreboard extends Component {
         // we put on state the properties we want to use and modify in the component
         this.state = {
             state: "LOADING",
-            scores: [],
+            scoresToShow: [],
             region: "world"
         };
 
@@ -21,23 +21,23 @@ class Scoreboard extends Component {
     componentDidMount() {
         console.log("mount");
         
-        this.getScoresFromDatabase('nameTheFlag', this.state.region)
+        this.getScoresFromDatabase('nameTheFlag', this.state.region);
 
     }
 
     getScoresFromDatabase(game, region) {
         const database = firebase.database();
-        let gameRef = database.ref().child(game);
-        let regionRef = gameRef.child(region).orderByChild('time');
+        let regionRef = database.ref().child(game).child(region).orderByChild('time').limitToFirst(10);
         let scores = [];
         regionRef.on('child_added', function(snapshot) {
-
+          console.log("ye");
           scores.push(snapshot.val());
         });
         
         this.setState({
-            status: "LOADED",
-            scoresToShow: scores
+          scoresToShow: scores,  
+          status: "LOADED"
+            
         });
     }
 
@@ -46,16 +46,22 @@ class Scoreboard extends Component {
         let ref = database.ref().child(game).child(region);
         ref.push().set({
           name: name,
-          time: time,
+          time: time
         });
 
         
       }
+    update(){
+      this.getScoresFromDatabase('nameTheFlag', this.state.region);
+    }
       selectorChanged = e => {
         this.setState({
+            status: "LOADING",
             region: e.target.value
         });
         console.log(this.state.region);
+        //this.update();
+        this.getScoresFromDatabase('nameTheFlag', e.target.value);
       }
 
     //writeUserData("nameTheFlag", "europe", "vlad-p", "20:24");
@@ -69,14 +75,26 @@ class Scoreboard extends Component {
               tbody = <div className='container loader'></div>;
               break;
             case "LOADED":
+            
                 //this.writeUserData('nameTheFlag', 'world', '', '23:32')
                 let scores = this.state.scoresToShow;
-                console.log("in render: ", scores);
+                console.log("in render: state region: ", this.state.region, " data: ", scores);
+                /*
+                for(var i = 0; i < 10; i++) {
+                  let object = scores[i];
+                  tbody += 
+                  <tr key ={i}>
+                      <th key="1" scope="col">#</th>
+                      <th key="2" scope="col">{object.name}</th>
+                      <th key="3" scope="col">10/10</th>
+                      <th key="4" scope="col">{object.time}</th>
+                  </tr>
+                }
+                */
                 
-
                 tbody = scores.map(object => (
                   
-                <React.Fragment>
+               
 
                   <tr key = "1">
                       <th key="5" scope="col">#</th>
@@ -84,10 +102,10 @@ class Scoreboard extends Component {
                       <th key="3" scope="col">10/10</th>
                       <th key="4" scope="col">{object.time}</th>
                   </tr>
-                </React.Fragment>
+                
                 
                 ));
-
+                      
 
               
               break;
@@ -122,10 +140,10 @@ class Scoreboard extends Component {
             <table className="table">
                 <thead className="thead-dark">
                 <tr>
-                    <th key="1" scope="col">#</th>
-                    <th key="2" scope="col">Name</th>
-                    <th key="3" scope="col">Score</th>
-                    <th key="4" scope="col">Time</th>
+                    <th key="11" scope="col">#</th>
+                    <th key="22" scope="col">Name</th>
+                    <th key="33" scope="col">Score</th>
+                    <th key="44" scope="col">Time</th>
                 </tr>
                 </thead>
                 <tbody>
