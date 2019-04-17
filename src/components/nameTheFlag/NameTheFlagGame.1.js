@@ -96,23 +96,20 @@ class NameTheFlagGame extends Component {
           
       }
 
-      handleAnswerClick(userAnswer){
-          console.log("user answer: ", userAnswer);
-          let newScore = this.state.score;
+      handleAnswerClick(index, answer, options){
           let newCount = this.state.count + 1;
-          let newArray = this.state.answers;
-          newArray.splice(0,1);
-
-        if(userAnswer = this.state.answers[0]){
-            newScore += 1;
-        };
-        console.log("user score: ", newScore, "count : ", newCount);
-        this.setState({
-            score: newScore,
-            count: newCount,
-            answers: newArray
-        });
-    }
+        if(options[index] = answer){
+                let newScore = this.state.score + 1
+            this.setState({
+                score: newScore,
+                count: newCount
+            });
+        } else {
+            this.setState({
+                count: newCount
+            });
+        }
+      }
 
         processResponse(response) {
             if (response.ok) {
@@ -137,9 +134,9 @@ class NameTheFlagGame extends Component {
               break;
             case "LOADED":
 
-                
-                let answer = this.state.answers[0];
-                console.log("answer:", answer)
+                console.log("before pop", this.state.answers);
+                let answer = this.state.answers.pop();
+                console.log("after pop", this.state.answers)
 
                 let answerName = answer[0];
                 let answerFlag = answer[1];
@@ -153,7 +150,7 @@ class NameTheFlagGame extends Component {
                     options.push(a)
                     }
                 }
-                options.push(answerName);
+                options.push(answer[0]);
                 console.log("options before shuffle: ", options);
                 options = this.shuffle(options);
                 console.log("options after shuffle: ", options);
@@ -172,19 +169,19 @@ class NameTheFlagGame extends Component {
 
                         <div className='col-md-6 col-sm-6 options'>
                             
-                                <button id="btn1" type="button" className="btn btn-info" value={options[0]} onClick={() => this.handleAnswerClick(options[0])}>{options[0]}</button>
+                                <button id="btn1" type="button" className="btn btn-info" onClick={this.handleAnswerClick(0, answer, options)}>{options[0]}</button>
                            
                         </div>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn2" type="button" className="btn btn-info" value={options[1]} onClick={() => this.handleAnswerClick(options[1])}>{options[1]}</button>
+                            <button id="btn2" type="button" className="btn btn-info" onClick={this.handleAnswerClick(1, answer, options)}>{options[1]}</button>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn3" type="button" className="btn btn-info" value={options[2]} onClick={() => this.handleAnswerClick(options[2])}>{options[2]}</button>
+                            <button id="btn3" type="button" className="btn btn-info" onClick={this.handleAnswerClick(2, answer, options)}>{options[2]}</button>
                         </div>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn4" type="button" className="btn btn-info" value={options[3]} onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
+                            <button id="btn4" type="button" className="btn btn-info" onClick={this.handleAnswerClick(3, answer, options)}>{options[3]}</button>
                         </div>
                     </div>
                     <div className="progress">
