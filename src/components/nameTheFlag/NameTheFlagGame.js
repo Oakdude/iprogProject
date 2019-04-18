@@ -3,6 +3,7 @@ import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import Options from './Options'
+import Timer from "react-compound-timer"
 
 
 class NameTheFlagGame extends Component {
@@ -131,6 +132,15 @@ class NameTheFlagGame extends Component {
 
                 page =
                 <div id="game1div">
+
+                <div id="gameTimer">
+
+                <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
+
+    <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
+    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
+
+</Timer></div>
                 <div className="progress">
                     <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10"
                     aria-valuemin="10" aria-valuemax="100">
@@ -159,9 +169,9 @@ class NameTheFlagGame extends Component {
                     <div className='row'>
                         <div className='col-md-6 col-sm-6 options'>
 
-
+<Link to={{pathname: "/EndScreen"}}>
                             <button id="btn3" type="button" className="btn btn-info">{countryName}</button>
-
+</Link>
                         </div>
                         <div className='col-md-6 col-sm-6 options'>
                             <button id="btn4" type="button" className="btn btn-info">{wrong[2]}</button>
@@ -184,7 +194,7 @@ class NameTheFlagGame extends Component {
         return (
             <div className="container main">
 
-                <div className='row returnButton'>
+                <div className='row returnButtonGame'>
                     <div className="col-md-3">
                     <Link to='/NameTheFlag'>
                         <button type="button" className="btn btn-danger">Return</button>

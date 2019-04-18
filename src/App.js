@@ -6,6 +6,7 @@ import NameTheFlagGame from './components/nameTheFlag/NameTheFlagGame'
 import PlaceTheFlag from './components/placeTheFlag/PlaceTheFlag'
 import Home from './components/home/Home'
 import UserScore from './components/Scores/UserScore'
+import EndScreen from './components/EndScreen/EndScreen'
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
               <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
               <Route path="/PlaceTheFlag" render={()=><PlaceTheFlag/>} />
               <Route path="/UserScore" render={()=><UserScore/>} />
+              <Route path="/EndScreen" render={()=><EndScreen/>} />
             </Switch>
           </div>
         </BrowserRouter>
