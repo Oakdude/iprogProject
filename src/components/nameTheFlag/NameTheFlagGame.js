@@ -3,7 +3,7 @@ import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import { builtinModules } from 'module';
-//import Timer from "react-compound-timer"
+import Timer from "react-compound-timer"
 
 
 class NameTheFlagGame extends Component {
@@ -201,8 +201,8 @@ class NameTheFlagGame extends Component {
                 page = 
                 <div id="game1div"> 
 
-                <div id="basicUsage">00:00:00</div>
-                {/*
+                
+                
                 <div id="gameTimer">
 
                 <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
@@ -210,7 +210,7 @@ class NameTheFlagGame extends Component {
                 <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
                 <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
 
-            </Timer></div>*/}
+            </Timer></div>
                 
                     <div id="flag" className='row '>
                         <div className='flag'>
