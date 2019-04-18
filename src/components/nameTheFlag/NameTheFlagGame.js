@@ -216,18 +216,14 @@ class NameTheFlagGame extends Component {
         return (
             <div className="container main">
                 
-                <div className='row returnButtonGame'>
-                    <div className="col-md-3">
-                    <Link to='/'>
-                        <button type="button" className="btn btn-danger">Exit</button>
-                    </Link>
-                    </div>
-                    {/*<div className='title col-md-6'><h3>Name the flag: {this.state.continent}!</h3></div>
-                    <div className="col-md-3"></div>*/}
-                </div>
-                
                 
                 <div>{page}</div>
+
+                < div className="row exit">
+                    <Link to='/'>
+                        <button type="button" className="btn btn-danger">Exit Game </button>
+                    </Link>
+                </div>
                 
             </div>
         )

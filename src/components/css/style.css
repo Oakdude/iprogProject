@@ -3,10 +3,7 @@
 }
 
 .selectscreen .card {
-    width: 335px;
-    margin-bottom: 10px;
-    opacity: .8;
-    text-align: center;
+    width: 18rem;
 
 
 }
@@ -75,7 +72,6 @@
 .title {
     text-align: center;
     font-size: 250%;
-    margin-bottom: 50px;
     padding-top: 15px;
     color: #f8fae5;
 }
@@ -114,7 +110,6 @@
     text-align: center;
     padding-top: 20px;
     color: #f8fae5;
-    text-decoration: underline;
 }
 
 #nameitCard{
@@ -123,9 +118,18 @@
     float: right;
     margin-right: 50px;
 }
-#placeitCard{
+#placeitCard {
     color: red;
     margin-top: 100px;
     float: left;
     margin-left: 50px;
+}
+
+.usernameTextInput {
+    width: 100%;
+    margin: 20px;
+}
+
+.gif {
+    width: 20vw;
 }

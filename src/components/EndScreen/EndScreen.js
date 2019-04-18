@@ -2,9 +2,7 @@ import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
 import "../css/style.css"
 import "../css/placeTheFlag.css"
-import logo from "../navbar/images/logo-white.png"
-import nameitflag from "../images/nameflagimg.jpg"
-import placeitflag from "../images/placeflagimg.jpg"
+import clap from "../images/clapping.gif"
 
 
 class EndScreen extends Component {
@@ -31,35 +29,27 @@ class EndScreen extends Component {
 
 
             <div className="container main">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-
-                <div id="TestieHelp2"><h1>Game Complete</h1></div>
-                  <div id="game2div">
-                  <div className='row returnButton'>
-                      <div className="col-md-3">
-                          <Link to='/'>
-                          <button type="button" className="btn btn-danger">Main Menu</button>
-                          </Link>
-                      </div>
-                      </div>
-                <div id="TestieHelp2"><h1>Score: {this.state.score}/10</h1><h1>Time: 02:20</h1></div>
-
-                <div id="TestieHelp">
-                <h1>Insert name below</h1>
-                <form>
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
-  <Link to='/Userscore'>
-  <input type="submit" value="Submit" />
-  </Link>
-
-</form>
-
-                </div>
-                </div>
-                </div>
+                <div className="col-sm-12 col-md-12">
+                    <div id="game2div">
+                        <h1 className='title'>Game Complete</h1>
+                        <h4 className='subtitle'>Congratulations you made it to the top 10 for this region </h4>
+                        <div className='row'>
+                            <form className='usernameTextInput'>
+                                <div className="form-group">
+                                    <input className="form-control form-control-lg" type="text"
+                                           placeholder="Please enter a username here..."/>
+                                </div>
+                            </form>
+                        </div>
+                       <div className='row'>
+                           <div className='row '>
+                               <div className='gif'>
+                                   <img src={clap} className="img-fluid" alt="Responsive image" />
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                 </div>
             </div>
 
             </React.Fragment>
