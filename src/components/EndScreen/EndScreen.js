@@ -40,7 +40,8 @@ class EndScreen extends Component {
 
    handleSubmit = event => {
      if(this.state.username != ""){
-     this.writeUserData("nameTheFlag", this.state.continent, this.state.username, this.state.score, this.state.time);
+      let score = this.state.score + "/10";
+     this.writeUserData("nameTheFlag", this.state.continent, this.state.username, score, this.state.time);
      };
      
    }
