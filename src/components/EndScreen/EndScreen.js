@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
 import "../css/style.css"
 import "../css/placeTheFlag.css"
@@ -7,8 +7,25 @@ import nameitflag from "../images/nameflagimg.jpg"
 import placeitflag from "../images/placeflagimg.jpg"
 
 
+class EndScreen extends Component {
+  constructor(props) {
+      super(props);
+  
+      // we put on state the properties we want to use and modify in the component
+      this.state = {
+          score: sessionStorage.getItem("score")
+          
+      };
 
-const EndScreen = () => {
+    }
+
+
+    
+  render() {
+
+
+    
+  console.log(this.props);
     return (
       <React.Fragment>
 
@@ -25,7 +42,7 @@ const EndScreen = () => {
                           </Link>
                       </div>
                       </div>
-                <div id="TestieHelp2"><h1>Score: 8/10</h1><h1>Time: 02:20</h1></div>
+                <div id="TestieHelp2"><h1>Score: {this.state.score}/10</h1><h1>Time: 02:20</h1></div>
 
                 <div id="TestieHelp">
                 <h1>Insert name below</h1>
@@ -47,6 +64,7 @@ const EndScreen = () => {
 
             </React.Fragment>
     )
+  }
 }
 
 export default EndScreen;

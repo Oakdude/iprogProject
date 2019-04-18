@@ -102,16 +102,21 @@ class NameTheFlagGame extends Component {
           let newArray = this.state.answers;
           newArray.splice(0,1);
 
-        if(userAnswer = this.state.answers[0]){
+        if(userAnswer == this.state.answers[0]){
             newScore += 1;
         };
         console.log("user score: ", newScore, "count : ", newCount);
-        
+        if(newCount == 10){
+            sessionStorage.setItem("score", newScore);
+            //console.log()
+            this.props.history.push('/EndScreen');
+            
+        } else{
         this.setState({
             score: newScore,
             count: newCount,
             answers: newArray
-        });
+        });}
     }
 
         processResponse(response) {
@@ -154,11 +159,8 @@ class NameTheFlagGame extends Component {
                     }
                 }
                 options.push(answerName);
-                console.log("options before shuffle: ", options);
                 options = this.shuffle(options);
-                console.log("options after shuffle: ", options);
-
-
+                
                 page = 
                 <div id="game1div"> 
 

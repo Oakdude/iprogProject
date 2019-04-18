@@ -22,7 +22,7 @@ class App extends Component {
               <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
               <Route path="/PlaceTheFlag" render={()=><PlaceTheFlag/>} />
               <Route path="/UserScore" render={()=><Scoreboard/>} />
-              <Route path="/EndScreen" render={()=><EndScreen/>} />
+              <Route path="/EndScreen" render={(props)=><EndScreen {...props}/>} />
             </Switch>
           </div>
         </BrowserRouter>

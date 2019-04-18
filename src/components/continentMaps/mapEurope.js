@@ -13,6 +13,13 @@ const wrapperStyles = {
   margin: "0 auto",
 }
 
+const include = [
+  "ALB", "ALA", "AND", "AUT", "BEL", "BGR", "BIH", "BLR", "CHE", "CZE", "DEU", "NK",
+  "ESP", "EST", "FIN", "FRA", "FRO", "GBR", "GGY", "GRC", "HRV", "HUN", "IMN", "IRL",
+  "ISL", "ITA", "JEY", "NA",  "LIE", "LTU", "LUX", "LVA", "MCO", "MDA", "MKD", "MLT",
+  "MNE", "NLD", "NOR", "POL", "PRT", "ROU", "RUS", "SMR", "SRB", "SVK", "SVN", "SWE",
+  "UKR", "VAT", "RKS", "-99"]
+
 class BasicMap extends Component {
 
     handleClick(geography, evt) {
@@ -41,7 +48,7 @@ class BasicMap extends Component {
 
           <ZoomableGroup center={[15, 55]} disablePanning>
             <Geographies geography='./world-50m.json'>
-              {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
+            {(geographies, projection) => geographies.map((geography, i) => include.indexOf(geography.properties.ISO_A3) !== -1 &&  (
                 <Geography
                   key={i}
                   geography={geography}
