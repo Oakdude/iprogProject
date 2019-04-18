@@ -19,15 +19,7 @@ class FetchACountryFlag extends Component {
         };
 
       }
-time(){
-      var sec = 0;
-      function pad ( val ) { return val > 9 ? val : "0" + val; }
-      setInterval( function(){
-          document.getElementById("seconds").innerHTML=pad(++sec%60);
-          document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
-      }, 1000);
 
-    }
 
       getRandomArrayElement(arr){
         //Minimum value is set to 0 because array indexes start at 0.
@@ -148,7 +140,7 @@ time(){
 
 
                     <div id="flag2" className='row '>
-                        <div className='flag'>
+                        <div className='flag2'>
 
                             <img src={countryFlag} className="img-fluid" alt="Responsive image" />
                         </div>
@@ -171,8 +163,13 @@ time(){
 
 
         return (
+            <div className="container main">
+
+
 
                 <div>{page}</div>
+
+            </div>
         )
     }
 }

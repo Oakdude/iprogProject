@@ -123,7 +123,7 @@ class NameTheFlagGame extends Component {
                     let a = this.getRandomArrayElement(this.state.countries);
                     a = a[0][0];
                     if(wrong.includes(a)){
-                        return;
+                        continue;
                     } else {
                     wrong.push(a)
                     }

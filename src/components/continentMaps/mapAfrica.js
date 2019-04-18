@@ -39,7 +39,7 @@ class BasicMap extends Component {
            width={1400}
            height={1400}
            style={{
-             width: "95%",
+             width: "45%",
              height: "auto",
            }}
            >

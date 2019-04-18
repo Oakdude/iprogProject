@@ -33,8 +33,8 @@ const Home = () => {
                     </div>
 
                     <div className="col-sm-12 col-md-6 col-lg-6">
-                        <Link to='/PlaceTheFlag'>
-                        <div className="card text-white bg-danger mb-3" id="placeitCard">
+                        
+                        <div className="card text-white bg-secondary mb-3 disabled" id="placeitCard">
 
                             <img className="card-img-top" src={placeitflag} alt="Card image cap"></img>
                             <div className="card-body">
@@ -42,11 +42,11 @@ const Home = () => {
                                 <div className='card-text'>In this game your task is to identify a flag's corresponding country on an interactive map. Test how well you know the world map in this cool game mode.     Good luck!</div>
 
                                 <br/>
-                                    <h5>CLICK TO PLAY</h5>
+                                    <h5>COMING SOON</h5>
 
                             </div>
                         </div>
-                        </Link>
+                        
                     </div>
 
                 </div>

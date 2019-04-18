@@ -2,16 +2,19 @@ import React from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
 //import {Link} from "react-router-dom";
-import Map from './mapAfrica'
+import Map from './mapEurope'
 
 
 
 const MapsTest = () => {
     return (
 
+        <div className="container main" >
             <div>
+                
                 <Map />
             </div>
+        </div>
     )
 }
 

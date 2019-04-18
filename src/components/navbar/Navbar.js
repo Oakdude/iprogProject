@@ -12,7 +12,7 @@ const Navbar = () => {
                 <Link to='/' className="navbar-brand" href="#">
                     <img src={Logo} width="30" height="30"
                          className="d-inline-block align-top navLogo" alt="Logo"/>
-                         Flag Master
+                         Flagmaster
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"

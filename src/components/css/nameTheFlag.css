@@ -19,6 +19,19 @@
     text-align: center;
 }
 
+.flag {
+
+    width: 30vw;
+    min-width: 580px;
+    text-align: center;
+    margin: auto;
+}
+.flag img{
+    max-height: 350px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
 @media only screen and (max-width: 800px) {
     .flag{
         min-width: 100px;
@@ -35,9 +48,10 @@
 #game1div {
     padding: 40px;
     text-align: center;
+    border-radius: 5px;
     background: rgba(0, 0, 0, 0.3);
+    padding-bottom : 275px;
 }
-
 
 #game1div button{
     margin: 0;
@@ -97,9 +111,4 @@
 .progress-bar {
     width: 10%;
     color: black;
-}
-
-.exit .btn {
-    padding: 10px;
-    margin: 10px;
 }

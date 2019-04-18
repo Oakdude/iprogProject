@@ -3,7 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import NameTheFlag from './components/nameTheFlag/NameTheFlag'
 import NameTheFlagGame from './components/nameTheFlag/NameTheFlagGame'
-import PlaceTheFlag from './components/placeTheFlag/PlaceTheFlag'
+import PlaceTheFlag from './components/placeTheFlag/PlaceTheFlagNew'
+import PlaceTheFlag2 from './components/placeTheFlag/PlaceTheFlag'
+
+import PlaceTheFlagGame from './components/placeTheFlag/PlaceTheFlagGame'
 import Home from './components/home/Home'
 import UserScore from './components/Scores/UserScore'
 import EndScreen from './components/EndScreen/EndScreen'
@@ -21,6 +24,9 @@ class App extends Component {
               <Route path="/NameTheFlag" render={()=><NameTheFlag/>} />
               <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
               <Route path="/PlaceTheFlag" render={()=><PlaceTheFlag/>} />
+              <Route path="/PlaceTheFlag2" render={()=><PlaceTheFlag2/>} />
+
+              <Route path="/PlaceTheFlagGame/:continent" render={(props) => <PlaceTheFlagGame {...props}/>} />
               <Route path="/UserScore" render={()=><Scoreboard/>} />
               <Route path="/EndScreen" render={(props)=><EndScreen {...props}/>} />
             </Switch>

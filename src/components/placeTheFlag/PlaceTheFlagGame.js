@@ -1,19 +1,17 @@
 import React, {Component} from 'react'
 import "../css/style.css"
-import "../css/nameTheFlag.css"
-import {Link} from "react-router-dom";
-import { builtinModules } from 'module';
-//import Timer from "react-compound-timer"
-
-
-class NameTheFlagGame extends Component {
+import "../css/placeTheFlag.css"
+import MapsTest from '../continentMaps/mapsTest'
+import {Link} from "react-router-dom"
+import FetchACountryFlag from './FetchACountryFlag'
+import Timer from "react-compound-timer"
+import Map from "../continentMaps/mapAfrica"
+class PlaceTheFlagGame extends Component {
     constructor(props) {
         super(props);
     
         // we put on state the properties we want to use and modify in the component
         this.state = {
-            startTime: null,
-            endTime: null,
             score: 0,
             count: 0,
             state: "LOADING",
@@ -85,10 +83,8 @@ class NameTheFlagGame extends Component {
                 
             }
             console.log("answers: ", answers);
-                let start = Date.now();
               this.setState({
                   status: "LOADED",
-                  startTime: start,
                   countries: countries,
                   answers: answers
               });
@@ -99,16 +95,6 @@ class NameTheFlagGame extends Component {
             });
           });
           
-      }
-
-      getTime() {
-        let end = Date.now();
-        let time = -(this.state.startTime-end)/1000;
-        console.log(time);
-        let minutes = Math.floor(time / 60);
-        let seconds = time - minutes * 60;
-        
-        return minutes.toString() + ":" + Math.round(seconds).toString();
       }
 
       handleAnswerClick(userAnswer){
@@ -125,20 +111,12 @@ class NameTheFlagGame extends Component {
             newScore += 1;
         };
         console.log("user score: ", newScore, "count : ", newCount);
-   
+        
         //console.log(Timer.Seconds);
-
+        console.log(document.getElementsByClassName(Timer.Minutes));
         if(newCount == 10){
-            let time = this.getTime();
-            let continent = this.state.continent;
-            console.log(time);
             sessionStorage.setItem("score", newScore);
-            sessionStorage.setItem("time", time);
-            sessionStorage.setItem("continent", continent);
-
-
             //console.log()
-
             this.props.history.push('/EndScreen');
             
         } else{
@@ -151,28 +129,28 @@ class NameTheFlagGame extends Component {
             });}
     }
 
-        processResponse(response) {
-            if (response.ok) {
-                return response.json();
-            }
-            console.log(response);
-            throw response;
-            }
+    processResponse(response) {
+        if (response.ok) {
+            return response.json();
+        }
+        console.log(response);
+        throw response;
+        }
 
-            componentDidMount() {
-                console.log("mounted");
-                this.fetchCountries();
-    
-              }
+        componentDidMount() {
+            console.log("mounted");
 
-              componentWillReceiveProps(nextProps) {
-                console.log('componentWillReceiveProps', nextProps);
-                this.setState(nextProps);
-            }
-            
-        
-      render() {
-        let page = null;
+            this.fetchCountries();
+
+          }
+
+          componentWillReceiveProps(nextProps) {
+            console.log('componentWillReceiveProps', nextProps);
+            this.setState(nextProps);
+        }
+
+render() {
+    let page = null;
         switch (this.state.status) {
             case "LOADING":
               page = <em>Loading...</em>;
@@ -185,75 +163,39 @@ class NameTheFlagGame extends Component {
 
                 let answerName = answer[0];
                 let answerFlag = answer[1];
-                let options= [];
-                while (options.length < 3){
-                    let a = this.getRandomArrayElement(this.state.countries);
-                    a = a[0][0];
-                    if(options.includes(a)){
-                        continue;
-                    } else {
-                    options.push(a)
-                    }
-                }
-                options.push(answerName);
-                options = this.shuffle(options);
-                
-                page = 
-                <div id="game1div"> 
-
-                <div id="basicUsage">00:00:00</div>
-                {/*
-                <div id="gameTimer">
-
-                <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
-
-                <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
-                <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
-
-            </Timer></div>*/}
-                
-                    <div id="flag" className='row '>
-                        <div className='flag'>
-                            <img src={answerFlag} className="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
                 
 
-                    <div id="options" className='row'>
 
-                        <div className='col-md-6 col-sm-6 options'>
-                            
-                                <button id="btn1" type="button" className="btn btn-info" value={options[0]} onClick={() => this.handleAnswerClick(options[0])}>{options[0]}</button>
-                           
-                        </div>
-                        <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn2" type="button" className="btn btn-info" value={options[1]} onClick={() => this.handleAnswerClick(options[1])}>{options[1]}</button>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn3" type="button" className="btn btn-info" value={options[2]} onClick={() => this.handleAnswerClick(options[2])}>{options[2]}</button>
-                        </div>
-                        <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn4" type="button" className="btn btn-info" value={options[3]} onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
-                        </div>
-                    </div>
+                page=
+
+                <div>
                     
+                        <div id="flag2" className='row '>
+                            <div className='flag2'>
+
+                                <img src={answerFlag} className="img-fluid" alt="Responsive image" />
+                            </div>
+                        </div>
+
+
+                        <div>
+                            
+                            <Map />
+                        </div>
+                    
+
                 </div>
-
                 
+                
+                
+                break;
+                default:
+                  page = <b>Failed to load data, please try again</b>;
+                  break;
+              }
+    return (
 
-            
-
-              break;
-            default:
-              page = <b>Failed to load data, please try again</b>;
-              break;
-          }
-        
-
-        return (
-            <div className="container main">
+        <div className="container main">
                 
                 <div className='row returnButtonGame'>
                     <div className="col-md-3">
@@ -269,7 +211,9 @@ class NameTheFlagGame extends Component {
                 <div>{page}</div>
                 
             </div>
-        )
-    }
+    )
 }
-export default NameTheFlagGame;
+}
+
+
+export default PlaceTheFlagGame;
