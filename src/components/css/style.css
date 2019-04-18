@@ -131,5 +131,11 @@
 }
 
 .gif {
-    width: 20vw;
+    width: 50vw;
 }
+
+.endScreen .btn {
+    padding: 10px ;
+    margin: 0px;
+}
+

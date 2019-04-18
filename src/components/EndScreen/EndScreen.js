@@ -39,6 +39,7 @@ class EndScreen extends Component {
                                     <input className="form-control form-control-lg" type="text"
                                            placeholder="Please enter a username here..."/>
                                 </div>
+                                <button type="submit" className="btn btn-primary  ">Confirm</button>
                             </form>
                         </div>
                        <div className='row'>
