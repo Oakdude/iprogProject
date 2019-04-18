@@ -4,42 +4,46 @@ import "../css/placeTheFlag.css"
 import MapsTest from '../continentMaps/mapsTest'
 import {Link} from "react-router-dom"
 import FetchACountryFlag from './FetchACountryFlag'
-import Timer from "react-compound-timer"
+import Timer from "timer-machine"
 
 
 const Selection = () => {
+
+    const timerFun = () => {
+
+        var timer = new Timer();
+
+        timer.on('time', function (time) {
+            console.log('Current time: ' + time + 'ms')
+        })
+        timer.start()
+        setInterval(timer.emitTime.bind(timer), 1000)
+    }
+
+    console.log("I'M HERE");
+  //  timerFun();
+
     return (
         <div className="container main">
 
-            <div className='row returnButtonGame'>
-                <div className="col-md-3">
-                    <Link to='/'>
-                    <button type="button" className="btn btn-danger">Exit</button>
-                    </Link>
-                </div>
-                  </div>
-                <div id="game2div">
+            <div id="game2div">
                 <div id="gameTimer">
 
-                <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
-
-    <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
-    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
-
-</Timer></div>
-                <div className="progress">
-                    <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10"
-                    aria-valuemin="10" aria-valuemax="100">
-                    1/10
+                </div>
+                <div className='row'>
+                    <div className='col-md-6'>
+                        <FetchACountryFlag />
+                    </div>
+                    <div className='col-md-6'>
+                        <MapsTest />
                     </div>
                 </div>
-                  <FetchACountryFlag />
-<MapsTest />
-
-
             </div>
-
-
+            < div className="row exit">
+                <Link to='/'>
+                    <button type="button" className="btn btn-danger">Exit Game </button>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -148,7 +148,7 @@ time(){
 
 
                     <div id="flag2" className='row '>
-                        <div className='flag2'>
+                        <div className='flag'>
 
                             <img src={countryFlag} className="img-fluid" alt="Responsive image" />
                         </div>
@@ -171,13 +171,8 @@ time(){
 
 
         return (
-            <div className="container main">
-
-
 
                 <div>{page}</div>
-
-            </div>
         )
     }
 }

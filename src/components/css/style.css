@@ -139,3 +139,14 @@
     margin: 0px;
 }
 
+
+.flag {
+
+    width: 20vw;
+    min-width: 100px;
+    text-align: center;
+    margin: auto;
+}
+.flag img{
+    max-height: 350px;
+}

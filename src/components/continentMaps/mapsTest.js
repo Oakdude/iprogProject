@@ -9,12 +9,9 @@ import Map from './mapAfrica'
 const MapsTest = () => {
     return (
 
-        <div className="container main" >
             <div>
-                
                 <Map />
             </div>
-        </div>
     )
 }
 

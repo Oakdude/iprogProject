@@ -19,17 +19,6 @@
     text-align: center;
 }
 
-.flag {
-
-    width: 20vw;
-    min-width: 100px;
-    text-align: center;
-    margin: auto;
-}
-.flag img{
-    max-height: 350px;
-}
-
 @media only screen and (max-width: 800px) {
     .flag{
         min-width: 100px;
