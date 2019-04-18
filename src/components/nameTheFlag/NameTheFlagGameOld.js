@@ -2,16 +2,16 @@ import React, {Component} from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
+import Options from './Options'
 import Timer from "react-compound-timer"
+
 
 class NameTheFlagGame extends Component {
     constructor(props) {
         super(props);
-    
+
         // we put on state the properties we want to use and modify in the component
         this.state = {
-            score: 0,
-            count: 0,
             state: "LOADING",
             continent: this.props.match.params.continent
         };
@@ -28,25 +28,6 @@ class NameTheFlagGame extends Component {
         //Return random value.
         return [arr[randIndex], randIndex];
     }
-
-    shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-      
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-      
-          // Pick a remaining element...
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex -= 1;
-      
-          // And swap it with the current element.
-          temporaryValue = array[currentIndex];
-          array[currentIndex] = array[randomIndex];
-          array[randomIndex] = temporaryValue;
-        }
-      
-        return array;
-      }
 
       fetchCountries() {
         console.log("chosen continent: ", this.state.continent);
@@ -76,43 +57,38 @@ class NameTheFlagGame extends Component {
                 } else {
                     answers.push(country[0]);
                     countries.splice(country[1], 1);
-                
+
                 }
-                
+
             }
-            console.log("answers: ", answers);
-              this.setState({
-                  status: "LOADED",
-                  countries: countries,
-                  answers: answers
-              });
+
+              this.setState({status: "LOADED", countries: countries, answers: answers});
           }).catch((error) => {
             console.log("error", error);
             this.setState({
               status: "ERROR"
             });
           });
-          
+
       }
 
-      handleAnswerClick(userAnswer){
-          console.log("user answer: ", userAnswer);
-          let newScore = this.state.score;
-          let newCount = this.state.count + 1;
-          let newArray = this.state.answers;
-          newArray.splice(0,1);
-
-        if(userAnswer = this.state.answers[0]){
-            newScore += 1;
-        };
-        console.log("user score: ", newScore, "count : ", newCount);
-        
-        this.setState({
-            score: newScore,
-            count: newCount,
-            answers: newArray
-        });
-    }
+      fetchdata() { //unused function
+        console.log(this.state.continent);
+        if(this.state.continent == "world"){
+            var url = "https://restcountries.eu/rest/v2/all"
+        }else {
+        var url = "https://restcountries.eu/rest/v2/region/" + this.state.continent;
+        }
+        fetch(url)
+            .then(this.processResponse)
+            .then(data => {
+                let list = [];
+                for (let country of data){
+                    list.append([country.name, country.flag])
+                }
+                return list;
+            })
+        }
 
         processResponse(response) {
             if (response.ok) {
@@ -125,11 +101,12 @@ class NameTheFlagGame extends Component {
             componentDidMount() {
 
                 this.fetchCountries();
-    
+
               }
-            
-        
+
+
       render() {
+
         let page = null;
         switch (this.state.status) {
             case "LOADING":
@@ -137,98 +114,99 @@ class NameTheFlagGame extends Component {
               break;
             case "LOADED":
 
-                
-                let answer = this.state.answers[0];
-                console.log("answer:", answer)
 
-                let answerName = answer[0];
-                let answerFlag = answer[1];
-                let options= [];
-                while (options.length < 3){
+                let country = this.state.answers.pop();
+                let countryName = country[0];
+                let countryFlag = country[1];
+                let wrong= [];
+                while (wrong.length < 3){
                     let a = this.getRandomArrayElement(this.state.countries);
                     a = a[0][0];
-                    if(options.includes(a)){
+                    if(wrong.includes(a)){
                         return;
                     } else {
-                    options.push(a)
+                    wrong.push(a)
                     }
                 }
-                options.push(answerName);
-                console.log("options before shuffle: ", options);
-                options = this.shuffle(options);
-                console.log("options after shuffle: ", options);
+                console.log(wrong);
 
-
-                page = 
-                <div id="game1div"> 
+                page =
+                <div id="game1div">
 
                 <div id="gameTimer">
 
                 <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
 
-                <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
-                <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
+    <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
+    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
 
-                </Timer></div>
-                
+</Timer></div>
+                <div className="progress">
+                    <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10"
+                    aria-valuemin="10" aria-valuemax="100">
+                    1/10
+                    </div>
+                </div>
+
                     <div id="flag" className='row '>
                         <div className='flag'>
-                            <img src={answerFlag} className="img-fluid" alt="Responsive image" />
+                            <img src={countryFlag} className="img-fluid" alt="Responsive image" />
                         </div>
                     </div>
-                
+
 
                     <div id="options" className='row'>
 
                         <div className='col-md-6 col-sm-6 options'>
-                            
-                                <button id="btn1" type="button" className="btn btn-info" value={options[0]} onClick={() => this.handleAnswerClick(options[0])}>{options[0]}</button>
-                           
+
+                                <button id="btn1" type="button" className="btn btn-info">{wrong[0]}</button>
+
                         </div>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn2" type="button" className="btn btn-info" value={options[1]} onClick={() => this.handleAnswerClick(options[1])}>{options[1]}</button>
+                            <button id="btn2" type="button" className="btn btn-info">{wrong[1]}</button>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn3" type="button" className="btn btn-info" value={options[2]} onClick={() => this.handleAnswerClick(options[2])}>{options[2]}</button>
+
+<Link to={{pathname: "/EndScreen"}}>
+                            <button id="btn3" type="button" className="btn btn-info">{countryName}</button>
+</Link>
                         </div>
                         <div className='col-md-6 col-sm-6 options'>
-                            <button id="btn4" type="button" className="btn btn-info" value={options[3]} onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
+                            <button id="btn4" type="button" className="btn btn-info">{wrong[2]}</button>
                         </div>
                     </div>
-                    
+
                 </div>
 
-                
 
-            
+
+
 
               break;
             default:
               page = <b>Failed to load data, please try again</b>;
               break;
           }
-        
+
 
         return (
             <div className="container main">
-                
+
                 <div className='row returnButtonGame'>
                     <div className="col-md-3">
-                    <Link to='/'>
-                        <button type="button" className="btn btn-danger">Exit</button>
+                    <Link to='/NameTheFlag'>
+                        <button type="button" className="btn btn-danger">Return</button>
                     </Link>
                     </div>
-                    {/*<div className='title col-md-6'><h3>Name the flag: {this.state.continent}!</h3></div>
-                    <div className="col-md-3"></div>*/}
                 </div>
-                
-                
+
+
                 <div>{page}</div>
-                
+
             </div>
-        )
+        );
     }
 }
 export default NameTheFlagGame;

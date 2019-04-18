@@ -4,8 +4,9 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.9.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.8.4",
+    "react-compound-timer": "^1.0.12",
+    "react-dom": "^16.8.4",
     "react-router-dom": "^4.4.0",
     "react-scripts": "2.1.8",
     "react-simple-maps": "^0.12.1"
@@ -24,17 +25,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Oakdude/iprogProject.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Oakdude/iprogProject/issues"
-  },
-  "homepage": "https://github.com/Oakdude/iprogProject#readme"
+  ]
 }

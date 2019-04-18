@@ -1,12 +1,15 @@
-.returnButton {
+.returnButtonGame {
     text-align: center;
-    margin: auto;
-    padding-top: 40px;
+    margin: left;
+    padding-top: 20px;
+    float: left;
+
 
 }
 
-.returnButton .btn {
+.returnButtonGame .btn {
     margin: 10px;
+  float: left;
     margin-bottom: 40px ;
 }
 
@@ -17,7 +20,7 @@
 }
 
 .flag {
-    
+
     width: 30vw;
     min-width: 580px;
     text-align: center;
@@ -25,13 +28,15 @@
 }
 .flag img{
     max-height: 350px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 @media only screen and (max-width: 800px) {
     .flag{
         min-width: 100px;
         width: 80vw;
-        
+
     }
 }
 
@@ -42,8 +47,10 @@
 }
 #game1div {
     padding: 40px;
+    text-align: center;
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0.3)
+    background: rgba(0, 0, 0, 0.3);
+    padding-bottom : 275px;
 }
 
 #game1div button{
@@ -53,11 +60,37 @@
 }
 #btn1, #btn3 {
     float: right;
+
     margin-right: 0px;
 }
+
 #btn2, #btn4 {
     float: left;
+
     margin-left: 0px;
+
+}
+
+#btn1:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform .2s;
+    transform: scale(1.2);
+}
+
+#btn2:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
+}
+#btn3:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
+}
+#btn4:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform .2s;
+    transform: scale(1.2);
 }
 
 @media only screen and (max-width: 800px) {
@@ -65,13 +98,15 @@
 
         width: 80%;
         min-height: 80px;
-        height: 100%;
+        height: 80%;
         float: none;
         margin:0;
     }
 }
 .progress {
-    margin-top: 20px;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .progress-bar {
     width: 10%;

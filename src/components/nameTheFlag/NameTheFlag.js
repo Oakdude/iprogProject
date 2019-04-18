@@ -8,15 +8,15 @@ import {Link} from "react-router-dom";
 const Selection = () => {
     return (
         <div className="container main">
-       
-            <div className='row returnButton'>  
+
+            <div className='row returnButton'>
                 <div className="col-md-3">
                     <Link to='/'>
-                    <button type="button" className="btn btn-danger">Exit Game</button>
+                    <button type="button" className="btn btn-danger">Return</button>
                     </Link>
                 </div>
                 <div className='title col-md-6'>
-                    <h3>Choose A Continent!</h3>
+                    Choose a Continent!
                 </div>
                 <div className="col-md-3"></div>
             </div>
@@ -26,4 +26,3 @@ const Selection = () => {
 }
 
 export default Selection;
-

@@ -1,21 +1,45 @@
 import React from 'react'
 import "../css/style.css"
-import "../css/nameTheFlag.css"
-import Continents from '../continents/Continents'
-import {Link} from "react-router-dom";
+import "../css/placeTheFlag.css"
+import MapsTest from '../continentMaps/mapsTest'
+import {Link} from "react-router-dom"
+import FetchACountryFlag from './FetchACountryFlag'
+import Timer from "react-compound-timer"
 
 
 const Selection = () => {
     return (
         <div className="container main">
-        <br/>
-            <h1 className='title'>Choose A Continent!</h1>
-            <div className='row'>
-                <Link to='/' className='returnButton'>
-                    <button type="button" className="btn btn-primary">Choose another game</button>
-                </Link>
+
+            <div className='row returnButtonGame'>
+                <div className="col-md-3">
+                    <Link to='/'>
+                    <button type="button" className="btn btn-danger">Return</button>
+                    </Link>
+                </div>
+                  </div>
+                <div id="game2div">
+                <div id="gameTimer">
+
+                <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
+
+    <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
+    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
+
+</Timer></div>
+                <div className="progress">
+                    <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="10"
+                    aria-valuemin="10" aria-valuemax="100">
+                    1/10
+                    </div>
+                </div>
+                  <FetchACountryFlag />
+<MapsTest />
+
+
             </div>
-            <Continents />
+
+
         </div>
     )
 }
