@@ -199,12 +199,13 @@ class NameTheFlagGame extends Component {
                             <button id="btn4" type="button" className="btn btn-info" value={options[3]} onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
                         </div>
                     </div>
+
+                    <h5 className='subtitle'>1/10</h5>
                     
                 </div>
 
                 
 
-            
 
               break;
             default:

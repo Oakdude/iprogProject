@@ -13,9 +13,6 @@ const Selection = () => {
 
         var timer = new Timer();
 
-        timer.on('time', function (time) {
-            console.log('Current time: ' + time + 'ms')
-        })
         timer.start()
         setInterval(timer.emitTime.bind(timer), 1000)
     }
@@ -28,6 +25,7 @@ const Selection = () => {
 
             <div id="game2div">
                 <div id="gameTimer">
+                    <h2>{timerFun()}</h2>
 
                 </div>
                 <div className='row'>
