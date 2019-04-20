@@ -4,4 +4,5 @@
 ### `npm install firebase`
 ### `npm start`
 
+https://flagmaster-ea8b8.firebaseapp.com
 
