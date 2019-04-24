@@ -23,6 +23,9 @@ class Scoreboard extends Component {
         
         this.getScoresFromDatabase('nameTheFlag', this.state.region);
 
+        //this.writeUserData("nameTheFlag", "europe", "", "1:22");
+
+
     }
 
     getScoresFromDatabase(game, region) {

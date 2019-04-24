@@ -10,7 +10,7 @@ import placeitflag from "../images/placeflagimg.jpg"
 const Home = () => {
     return (
             <div className="container selectscreen">
-                <div className="row">
+                <div id="gameSelectCards" className="row">
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         <Link to='/NameTheFlag'>
                         <div className="card text-white bg-info mb-3" id="nameitCard">

@@ -17,7 +17,9 @@ class NameTheFlagGame extends Component {
             score: 0,
             count: 0,
             state: "LOADING",
-            continent: this.props.match.params.continent
+            continent: this.props.match.params.continent,
+            results: []
+            
         };
 
       }
@@ -116,13 +118,18 @@ class NameTheFlagGame extends Component {
           let newScore = this.state.score;
           let newCount = this.state.count + 1;
           let newArray = this.state.answers;
-
+            let results = this.state.results;
           let correct = newArray[0][0]
-          console.log("[0]", correct)
+          
         
         if(userAnswer === correct){
             console.log("correct!")
             newScore += 1;
+            let a = [newArray[0], true];
+            results.push(a);
+        } else {
+            let a = [newArray[0], false];
+            results.push(a);
         };
         console.log("user score: ", newScore, "count : ", newCount);
    
@@ -135,7 +142,7 @@ class NameTheFlagGame extends Component {
             sessionStorage.setItem("score", newScore);
             sessionStorage.setItem("time", time);
             sessionStorage.setItem("continent", continent);
-
+            sessionStorage.setItem("results", JSON.stringify(results))
 
             //console.log()
 
@@ -147,7 +154,8 @@ class NameTheFlagGame extends Component {
             this.setState({
                 score: newScore,
                 count: newCount,
-                answers: newArray
+                answers: newArray,
+                results: results
             });}
     }
 

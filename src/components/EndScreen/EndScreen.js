@@ -1,7 +1,6 @@
 import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
 import "../css/style.css"
-import "../css/placeTheFlag.css"
 import logo from "../navbar/images/logo-white.png"
 import nameitflag from "../images/nameflagimg.jpg"
 import placeitflag from "../images/placeflagimg.jpg"
@@ -17,6 +16,7 @@ class EndScreen extends Component {
           continent: sessionStorage.getItem("continent"),
           score: sessionStorage.getItem("score"),
           time: sessionStorage.getItem("time"),
+          results: JSON.parse(sessionStorage.getItem("results")),
           username: ""
       };
 
@@ -45,11 +45,67 @@ class EndScreen extends Component {
      };
      
    }
+   getResults() {
+     let results = this.state.results;
+     while(results.length > 0 ){
+       let answer = results.splice(0,1);
+       let name = results[0][0];
+       let flag = results[0][1];
+       
+       let div =  <div><img src={flag} className="img-fluid" alt="Responsive image" /><h4 style="color:black">{name}</h4></div>;
+      return div;
+     }
+   }
+
+   renderTable = () => {
+     
+    
+
+     
+    return this.state.results.map(result => {
+      let resColor = "";
+      if(result[1]){
+        resColor = "#01D51A";
+      } else {
+        resColor = "#FE2427";
+      }
+      console.log(resColor);
+      const imgStyle = {
+        width: "40px",
+        height: "auto",
+        "box-shadow": "2px 2px 2px black"
+       }
+       const tdStyle = {
+        color: resColor
+        
+       }
+       const tableStyle = {
+         margin: "10px",
+         "margin-left": "110px",
+         "text-shadow": "2px 2px 2px black"
+         //"-webkit-text-stroke-width": "0.5px",
+         //"-webkit-text-stroke-color": "black"
+       }
+        return (
+          <font size="5" >
+          
+            <table style={tableStyle}>
+            <tr>   
+              
+                <td style={tdStyle}><img style={imgStyle} src={result[0][1]} /> {result[0][0]}</td>
+                
+            </tr>
+
+        </table>
+        </font>
+        )
+    })
+}
     
   render() {
 
-    
-  
+    console.log(this.state.results);
+    //this.getResults();
     return (
       <React.Fragment>
 
@@ -59,21 +115,24 @@ class EndScreen extends Component {
 
                 
             
-                  <div id="game2div">
-                  <div className='row returnButton'>
-                      <div className="col-md-3">
-                          <Link to='/'>
-                          <button type="button" className="btn btn-danger">Exit</button>
-                          </Link>
-                      </div>
-                      </div>
-                      <div id="TestieHelp2"><h1>Game Complete!</h1></div>
-                <div id="TestieHelp2">
+                  <div id="endscreen">
                   
-                  <h1>Score: {this.state.score}/10</h1><h1>Time: {this.state.time}</h1>
-                  <br/>
+                            {/*<Link to='/'>
+                            <button type="button" className="btn btn-danger">Exit</button>
+    </Link>*/}
+                        
+                    <div className='row'>
+                        
+                        <div className="col-md-6 endscreen"><h1>Game Complete!</h1></div>
+                        <div className="col-md-6 endscreen"><h1>Score: {this.state.score}/10</h1><h1>Time: {this.state.time}</h1></div>
+                    </div>
+                      
+                <div id="TestieHelp2">
+                {/*<h3>Countries:</h3>*/}
+                  <div>{this.renderTable()}</div>
+                  <br />
                   <h3>Save your score and check the scoreboard for the top 10 scores!</h3>
-                  <form>
+                  <form id="endscreenForm">
                           
                           <input
                             type="text"

@@ -26,24 +26,35 @@
     margin-bottom: 40px ;
 }
 
-#TestieHelp {
-
+#endscreen {
+    padding: 20px;
     text-align: center;
+    color: white;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+        padding-bottom : 150px;
 
-    color: #ffffff;
-    margin-top: 200px;
-    font-size: 40px;
 
 }
 
-#TestieHelp2 {
+.endscreen {
 
     text-align: center;
 
-    color: #ffffff;
+    
     margin-top: 70px;
     font-size: 40px;
 
+}
+#endscreenForm input[type=text]:focus {
+    border: 3px solid white;
+  }
+
+#endscreenForm input{
+    margin-top: 20px;
+    
+    padding: 15px 30px 15px 30px;
+    border: none;
 }
 
 .card {
@@ -131,5 +142,10 @@
 }
 
 #submitScore{
-    margin-top: 50px;
+    margin-top: 0px;
+    padding: 10px 40px 10px 40px;
+}
+
+#gameSelectCards {
+    margin-top: 80px;
 }
