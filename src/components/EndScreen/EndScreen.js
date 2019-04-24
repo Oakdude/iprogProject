@@ -39,23 +39,12 @@ class EndScreen extends Component {
     };
 
    handleSubmit = event => {
-     if(this.state.username != ""){
-      let score = this.state.score + "/10";
-     this.writeUserData("nameTheFlag", this.state.continent, this.state.username, score, this.state.time);
+     if(this.state.username != "" && this.state.score=="10"){
+     this.writeUserData("nameTheFlag", this.state.continent, this.state.username, this.state.score, this.state.time);
      };
      
    }
-   getResults() {
-     let results = this.state.results;
-     while(results.length > 0 ){
-       let answer = results.splice(0,1);
-       let name = results[0][0];
-       let flag = results[0][1];
-       
-       let div =  <div><img src={flag} className="img-fluid" alt="Responsive image" /><h4 style="color:black">{name}</h4></div>;
-      return div;
-     }
-   }
+
 
    renderTable = () => {
      
@@ -69,7 +58,7 @@ class EndScreen extends Component {
       } else {
         resColor = "#FE2427";
       }
-      console.log(resColor);
+     
       const imgStyle = {
         width: "40px",
         height: "auto",
@@ -104,8 +93,7 @@ class EndScreen extends Component {
     
   render() {
 
-    console.log(this.state.results);
-    //this.getResults();
+
     return (
       <React.Fragment>
 

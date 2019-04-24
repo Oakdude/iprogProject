@@ -13,7 +13,8 @@ class Scoreboard extends Component {
         this.state = {
             state: "LOADING",
             scoresToShow: [],
-            region: "world"
+            region: "world",
+            number: 1
         };
 
       }
@@ -44,16 +45,16 @@ class Scoreboard extends Component {
         });
     }
 
-    writeUserData(game, region, name, time) {
-        const database = firebase.database();
-        let ref = database.ref().child(game).child(region);
-        ref.push().set({
-          name: name,
-          time: time
-        });
+    writeUserData(game, region, name, score, time) {
+      const database = firebase.database();
+      let ref = database.ref().child(game).child(region);
+      ref.push().set({
+        name: name,
+        score: score,
+        time: time
+      });
+    }
 
-        
-      }
     update(){
       this.getScoresFromDatabase('nameTheFlag', this.state.region);
     }
@@ -67,11 +68,14 @@ class Scoreboard extends Component {
         this.getScoresFromDatabase('nameTheFlag', e.target.value);
       }
 
-    //writeUserData("nameTheFlag", "europe", "vlad-p", "20:24");
+    
 
 
 
       render() {
+
+      
+        
         let tbody = null;
         switch (this.state.status) {
             case "LOADING":
@@ -94,15 +98,15 @@ class Scoreboard extends Component {
                   </tr>
                 }
                 */
-                
+                let num = 1;
                 tbody = scores.map(object => (
                   
                
 
-                  <tr key = "1">
-                      <th key="5" scope="col">#</th>
+                  <tr key = {num}>
+                      <th key="1" scope="col">{num++}</th>
                       <th key="2" scope="col">{object.name}</th>
-                      <th key="3" scope="col">10/10</th>
+                      <th key="3" scope="col">{object.score}/10</th>
                       <th key="4" scope="col">{object.time}</th>
                   </tr>
                 

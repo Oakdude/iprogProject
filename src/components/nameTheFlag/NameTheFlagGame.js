@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import { builtinModules } from 'module';
 import Timer from "react-compound-timer"
 
-
 class NameTheFlagGame extends Component {
     constructor(props) {
         super(props);
@@ -103,17 +102,22 @@ class NameTheFlagGame extends Component {
           
       }
 
+
       getTime() {
         let end = Date.now();
         let time = -(this.state.startTime-end)/1000;
         console.log(time);
         let minutes = Math.floor(time / 60);
         let seconds = time - minutes * 60;
-        
-        return minutes.toString() + ":" + Math.round(seconds).toString();
+        return minutes.toString().padStart(2, "0") + ":" + Math.round(seconds).toString().padStart(2, "0");
       }
 
       handleAnswerClick(userAnswer){
+
+        
+        //this.writeUserData("nameTheFlag", "europe", "Rekky", "10", "05:11");
+
+
           console.log("user answer: ", userAnswer);
           let newScore = this.state.score;
           let newCount = this.state.count + 1;
@@ -211,14 +215,18 @@ class NameTheFlagGame extends Component {
 
                 
                 
-                <div id="gameTimer">
-
+                <div className="row" id="gameTimer">
+                <div className="col-md-4 col-sm-12"></div>
+                <div className="col-md-4 col-sm-12">
                 <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
 
                 <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
                 <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
 
-            </Timer></div>
+                </Timer>
+                </div>
+                <div className="col-md-4 col-sm-12"></div>
+                </div>
                 
                     <div id="flag" className='row '>
                         <div className='flag'>
@@ -264,7 +272,7 @@ class NameTheFlagGame extends Component {
             <div className="container main">
                 
                 <div className='row returnButtonGame'>
-                    <div className="col-md-3">
+                    <div id="gameExitBtn">
                     <Link to='/'>
                         <button type="button" className="btn btn-danger">Exit</button>
                     </Link>

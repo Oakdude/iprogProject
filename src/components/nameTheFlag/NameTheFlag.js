@@ -12,7 +12,7 @@ const Selection = () => {
             <div className='row returnButton'>
                 <div className="col-md-3">
                     <Link to='/'>
-                    <button type="button" className="btn btn-danger">Return</button>
+                    <button type="button" className="btn btn-danger">Exit</button>
                     </Link>
                 </div>
                 <div className='title col-md-6'>
