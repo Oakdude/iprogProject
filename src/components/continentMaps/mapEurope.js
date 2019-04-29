@@ -22,12 +22,6 @@ const include = [
 
 class BasicMap extends Component {
 
-    handleClick(geography, evt) {
-        console.log("Geography data: ", geography)
-
-
-    }
-
   render() {
     return (
 

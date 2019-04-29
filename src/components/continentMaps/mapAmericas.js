@@ -23,12 +23,6 @@ const include =   ["AIA", "ATG", "ABW", "BHS", "BRB", "BLZ", "BMU", "BES", "VGB"
 
 class BasicMap extends Component {
 
-    handleClick(geography, evt) {
-        console.log("Geography data: ", geography)
-
-
-    }
-
   render() {
     return (
 

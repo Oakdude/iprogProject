@@ -35,7 +35,6 @@ class EndScreen extends Component {
 
     handleChange = event => {
       this.setState({ username: event.target.value });
-      console.log("user: ", this.state.username);
     };
 
    handleSubmit = event => {

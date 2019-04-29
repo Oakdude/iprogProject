@@ -54,7 +54,6 @@ class NameTheFlagGame extends Component {
       }
 
       fetchCountries() {
-        console.log("chosen continent: ", this.state.continent);
         if(this.state.continent == "world"){
             var url = "https://restcountries.eu/rest/v2/all"
         } else {
@@ -71,8 +70,6 @@ class NameTheFlagGame extends Component {
             })
           .then(countries => {
             let all = countries;
-            console.log(countries.length);
-            console.log(countries);
             let answers = [];
             while(answers.length < 10){
                 let country = this.getRandomArrayElement(countries);
@@ -85,7 +82,6 @@ class NameTheFlagGame extends Component {
                 }
                 
             }
-            console.log("answers: ", answers);
                 let start = Date.now();
               this.setState({
                   status: "LOADED",
@@ -94,7 +90,6 @@ class NameTheFlagGame extends Component {
                   answers: answers
               });
           }).catch((error) => {
-            console.log("error", error);
             this.setState({
               status: "ERROR"
             });
@@ -106,7 +101,6 @@ class NameTheFlagGame extends Component {
       getTime() {
         let end = Date.now();
         let time = -(this.state.startTime-end)/1000;
-        console.log(time);
         let minutes = Math.floor(time / 60);
         let seconds = time - minutes * 60;
         return minutes.toString().padStart(2, "0") + ":" + Math.round(seconds).toString().padStart(2, "0");
@@ -118,7 +112,6 @@ class NameTheFlagGame extends Component {
         //this.writeUserData("nameTheFlag", "europe", "Rekky", "10", "05:11");
 
 
-          console.log("user answer: ", userAnswer);
           let newScore = this.state.score;
           let newCount = this.state.count + 1;
           let newArray = this.state.answers;
@@ -127,7 +120,6 @@ class NameTheFlagGame extends Component {
           
         
         if(userAnswer === correct){
-            console.log("correct!")
             newScore += 1;
             let a = [newArray[0], true];
             results.push(a);
@@ -135,20 +127,15 @@ class NameTheFlagGame extends Component {
             let a = [newArray[0], false];
             results.push(a);
         };
-        console.log("user score: ", newScore, "count : ", newCount);
-   
-        //console.log(Timer.Seconds);
+
 
         if(newCount == 10){
             let time = this.getTime();
             let continent = this.state.continent;
-            console.log(time);
             sessionStorage.setItem("score", newScore);
             sessionStorage.setItem("time", time);
             sessionStorage.setItem("continent", continent);
             sessionStorage.setItem("results", JSON.stringify(results))
-
-            //console.log()
 
             this.props.history.push('/EndScreen');
             
@@ -167,18 +154,15 @@ class NameTheFlagGame extends Component {
             if (response.ok) {
                 return response.json();
             }
-            console.log(response);
             throw response;
             }
 
             componentDidMount() {
-                console.log("mounted");
                 this.fetchCountries();
     
               }
 
               componentWillReceiveProps(nextProps) {
-                console.log('componentWillReceiveProps', nextProps);
                 this.setState(nextProps);
             }
             
@@ -193,8 +177,6 @@ class NameTheFlagGame extends Component {
 
                 
                 let answer = this.state.answers[0];
-                console.log("answer:", answer)
-
                 let answerName = answer[0];
                 let answerFlag = answer[1];
                 let options= [];

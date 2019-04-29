@@ -14,8 +14,6 @@ const Home = () => {
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         <Link to='/NameTheFlag'>
                         <div className="card text-white bg-info mb-3" id="nameitCard">
-
-
                         <img className="card-img-top" src={nameitflag} alt="Card image cap"></img>
                             <div className="card-body">
 
@@ -34,7 +32,7 @@ const Home = () => {
 
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         
-                        <div className="card text-white bg-secondary mb-3 disabled" id="placeitCard">
+                        <div className="card text-white bg-secondary mb-3" id="placeitCard">
 
                             <img className="card-img-top" src={placeitflag} alt="Card image cap"></img>
                             <div className="card-body">
