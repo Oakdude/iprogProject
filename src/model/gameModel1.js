@@ -6,6 +6,7 @@ const gameModel1 = function () {
     let finalContinent = "";
 
 
+
     // Getter methods
     this.getFinalScore = function(){
         return finalScore;
@@ -18,7 +19,6 @@ const gameModel1 = function () {
     this.getFinalContinent = function(){
         return finalContinent;
     };
-
 
     this.getAllCountries = function(continent){
         console.log("Got to get all countries");
@@ -130,7 +130,22 @@ const gameModel1 = function () {
             score: score,
             time: time
         });
-    }
+    };
+
+    this.getScoresFromDatabase = function(game, region) {
+        const database = firebase.database();
+        let regionRef = database.ref().child(game).child(region).orderByChild('time').limitToFirst(10);
+        let scores = [];
+        regionRef.on('child_added', function(snapshot) {
+            console.log("ye");
+            scores.push(snapshot.val());
+        });
+
+        // console.log("SCORES " + scores);
+        return scores;
+    };
+
+
 };
 
 export const modelInstance1 = new gameModel1();
