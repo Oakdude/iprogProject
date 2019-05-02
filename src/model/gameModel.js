@@ -144,8 +144,6 @@ const gameModel = function () {
         // console.log("SCORES " + scores);
         return scores;
     };
-
-
 };
 
 export const modelInstance = new gameModel();
