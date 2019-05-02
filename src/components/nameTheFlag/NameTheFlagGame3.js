@@ -4,8 +4,6 @@ import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import { builtinModules } from 'module';
 import Timer from "react-compound-timer"
-// import modelInstance from '../../model/gameModel'
-// import {initialiseGame} from '../../model/gameModel';
 import {modelInstance1} from "../../model/gameModel1";
 
 
@@ -62,6 +60,7 @@ class NameTheFlagGame extends Component {
             });
       };
 
+
     handleAnswerClick(userAnswer){
 
         let newScore = this.state.score;
@@ -81,18 +80,13 @@ class NameTheFlagGame extends Component {
 
         //Game is over after 10 rounds and switches to endscreen
         if(newCount === 10){
-            let time = modelInstance1.getTime(this.state.startTime);
-            let continent = this.state.continent;
-            sessionStorage.setItem("score", newScore);
-            sessionStorage.setItem("time", time);
-            sessionStorage.setItem("continent", continent);
-            sessionStorage.setItem("results", JSON.stringify(results));
-
-            this.props.history.push('/EndScreen');
-
+            modelInstance1.endGame(
+                this.state.startTime,
+                this.state.continent,
+                newScore, results,
+                this.props);
         } else{
             newArray.splice(0,1);
-
             this.setState({
                 score: newScore,
                 count: newCount,

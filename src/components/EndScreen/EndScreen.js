@@ -6,16 +6,18 @@ import nameitflag from "../images/nameflagimg.jpg"
 import placeitflag from "../images/placeflagimg.jpg"
 import * as firebase from 'firebase';
 import clap from "../images/clapping.gif"
+import {modelInstance1} from "../../model/gameModel1";
 
 class EndScreen extends Component {
   constructor(props) {
       super(props);
-  
+
+
       // we put on state the properties we want to use and modify in the component
       this.state = {
-          continent: sessionStorage.getItem("continent"),
-          score: sessionStorage.getItem("score"),
-          time: sessionStorage.getItem("time"),
+          continent: modelInstance1.getFinalContinent(),
+          score: modelInstance1.getFinalScore(),
+          time: modelInstance1.getFinalTime(),
           results: JSON.parse(sessionStorage.getItem("results")),
           username: ""
       };

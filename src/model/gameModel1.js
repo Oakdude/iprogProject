@@ -1,4 +1,25 @@
 const gameModel1 = function () {
+    let finalScore = 0;
+    let finalTime = 0;
+    let finalContinent = "";
+    let finalResults = {};
+
+
+    this.getFinalScore = function(){
+        return finalScore;
+    };
+
+    this.getFinalTime = function(){
+        return finalTime;
+    };
+
+    this.getFinalContinent = function(){
+        return finalContinent;
+    };
+
+    this.getFinalResults= function(){
+        return finalResults;
+    };
 
     this.getAllCountries = function(continent){
         console.log("Got to get all countries");
@@ -65,7 +86,6 @@ const gameModel1 = function () {
 
     //refresh game state
     this.setGame = function(answer, countries){
-        // console.log("answer:", answer);
 
         let answerName = answer[0];
         let answerFlag = answer[1];
@@ -87,10 +107,20 @@ const gameModel1 = function () {
     this.getTime = function(startTime) {
         let end = Date.now();
         let time = -(startTime-end)/1000;
-        // console.log(time);
         let minutes = Math.floor(time / 60);
         let seconds = time - minutes * 60;
         return minutes.toString().padStart(2, "0") + ":" + Math.round(seconds).toString().padStart(2, "0");
+    };
+
+
+    this.endGame = function(startTime, stateContinent, newScore, results, props){
+        // let time = this.getTime(startTime);
+        sessionStorage.setItem("results", JSON.stringify(results));
+        finalTime = this.getTime(startTime);
+        finalScore = newScore;
+        finalContinent = stateContinent;
+        finalResults = JSON.stringify(results);
+        props.history.push('/EndScreen');
     }
 
 };
