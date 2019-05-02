@@ -34,8 +34,6 @@ class NameTheFlagGame extends Component {
             return list;
         }).then(countries => {
                  let all = countries;
-                console.log(countries.length);
-                console.log(countries);
                 let answers = [];
 
                 while(answers.length < 10){
@@ -48,7 +46,6 @@ class NameTheFlagGame extends Component {
                     }
                 }
 
-                console.log("answers: ", answers);
                 let start = Date.now();
                 this.setState({
                     status: "LOADED",
@@ -65,11 +62,8 @@ class NameTheFlagGame extends Component {
             });
       };
 
-
-
     handleAnswerClick(userAnswer){
 
-        console.log("user answer: ", userAnswer);
         let newScore = this.state.score;
         let newCount = this.state.count + 1;
         let newArray = this.state.answers;
@@ -77,26 +71,22 @@ class NameTheFlagGame extends Component {
         let correct = newArray[0][0];
 
         if(userAnswer === correct){
-            console.log("correct!");
             newScore += 1;
             let a = [newArray[0], true];
             results.push(a);
         } else {
             let a = [newArray[0], false];
             results.push(a);
-        };
-
-        console.log("user score: ", newScore, "count : ", newCount);
+        }
 
         //Game is over after 10 rounds and switches to endscreen
         if(newCount === 10){
             let time = modelInstance1.getTime(this.state.startTime);
             let continent = this.state.continent;
-            console.log(time);
             sessionStorage.setItem("score", newScore);
             sessionStorage.setItem("time", time);
             sessionStorage.setItem("continent", continent);
-            sessionStorage.setItem("results", JSON.stringify(results))
+            sessionStorage.setItem("results", JSON.stringify(results));
 
             this.props.history.push('/EndScreen');
 
@@ -108,23 +98,19 @@ class NameTheFlagGame extends Component {
                 count: newCount,
                 answers: newArray,
                 results: results
-            });}
+            });
+        }
     }
-
 
     componentDidMount() {
         console.log("mounted");
         this.fetchCountries();
-
     }
 
     componentWillReceiveProps(nextProps) {
         console.log('componentWillReceiveProps', nextProps);
         this.setState(nextProps);
     }
-
-
-
 
     render() {
         let page = null;
