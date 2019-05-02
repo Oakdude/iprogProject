@@ -4,6 +4,7 @@ import "../css/scoreBoard.css"
 import {Link} from "react-router-dom";
 //import fire from '../../fbConfig/fbConfig.js' 
 import * as firebase from 'firebase';
+import {modelInstance1} from "../../model/gameModel1";
 
 class Scoreboard extends Component {
     constructor(props) {

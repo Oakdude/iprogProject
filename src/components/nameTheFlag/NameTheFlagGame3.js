@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import "../css/style.css"
 import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
-import { builtinModules } from 'module';
+import {builtinModules} from 'module';
 import Timer from "react-compound-timer"
 import {modelInstance1} from "../../model/gameModel1";
 
@@ -26,42 +26,42 @@ class NameTheFlagGame extends Component {
     fetchCountries() {
         modelInstance1.getAllCountries(this.state.continent).then(data => {
             let list = [];
-            for (let country of data){
+            for (let country of data) {
                 list.push([country.name, country.flag])
             }
             return list;
         }).then(countries => {
-                 let all = countries;
-                let answers = [];
+            let all = countries;
+            let answers = [];
 
-                while(answers.length < 10){
-                    let country = modelInstance1.getRandomArrayElement(countries);
-                    if (answers.includes(country[0])){
-                        continue;
-                    } else {
-                        answers.push(country[0]);
-                        countries.splice(country[1], 1);
-                    }
+            while (answers.length < 10) {
+                let country = modelInstance1.getRandomArrayElement(countries);
+                if (answers.includes(country[0])) {
+                    continue;
+                } else {
+                    answers.push(country[0]);
+                    countries.splice(country[1], 1);
                 }
+            }
 
-                let start = Date.now();
-                this.setState({
-                    status: "LOADED",
-                    startTime: start,
-                    countries: countries,
-                    answers: answers
-                })
-            }).catch((error) => {
-                console.log("error", error);
-                this.setState({
-                    status: "ERROR"
-                });
-
+            let start = Date.now();
+            this.setState({
+                status: "LOADED",
+                startTime: start,
+                countries: countries,
+                answers: answers
+            })
+        }).catch((error) => {
+            console.log("error", error);
+            this.setState({
+                status: "ERROR"
             });
-      };
+
+        });
+    };
 
 
-    handleAnswerClick(userAnswer){
+    handleAnswerClick(userAnswer) {
 
         let newScore = this.state.score;
         let newCount = this.state.count + 1;
@@ -69,7 +69,7 @@ class NameTheFlagGame extends Component {
         let results = this.state.results;
         let correct = newArray[0][0];
 
-        if(userAnswer === correct){
+        if (userAnswer === correct) {
             newScore += 1;
             let a = [newArray[0], true];
             results.push(a);
@@ -79,14 +79,14 @@ class NameTheFlagGame extends Component {
         }
 
         //Game is over after 10 rounds and switches to endscreen
-        if(newCount === 10){
+        if (newCount === 10) {
             modelInstance1.endGame(
                 this.state.startTime,
                 this.state.continent,
                 newScore, results,
                 this.props);
-        } else{
-            newArray.splice(0,1);
+        } else {
+            newArray.splice(0, 1);
             this.setState({
                 score: newScore,
                 count: newCount,
@@ -128,7 +128,7 @@ class NameTheFlagGame extends Component {
                             <div className="col-md-4 col-sm-12">
                                 <Timer formatValue={(value) => `${(value < 10 ? `${value}` : value)} `}>
                                     <Timer.Minutes formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}/>
-                                    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
+                                    <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`}/>
                                 </Timer>
                             </div>
                             <div className="col-md-4 col-sm-12"></div>
@@ -136,24 +136,28 @@ class NameTheFlagGame extends Component {
 
                         <div id="flag" className='row '>
                             <div className='flag'>
-                                <img src={answerFlag} className="img-fluid" alt="Responsive image" />
+                                <img src={answerFlag} className="img-fluid" alt="Responsive image"/>
                             </div>
                         </div>
 
                         <div id="options" className='row'>
                             <div className='col-md-6 col-sm-6 options'>
-                                <button id="btn1" type="button" className="btn btn-info" value={options[0]} onClick={() => this.handleAnswerClick(options[0])}>{options[0]}</button>
+                                <button id="btn1" type="button" className="btn btn-info" value={options[0]}
+                                        onClick={() => this.handleAnswerClick(options[0])}>{options[0]}</button>
                             </div>
                             <div className='col-md-6 col-sm-6 options'>
-                                <button id="btn2" type="button" className="btn btn-info" value={options[1]} onClick={() => this.handleAnswerClick(options[1])}>{options[1]}</button>
+                                <button id="btn2" type="button" className="btn btn-info" value={options[1]}
+                                        onClick={() => this.handleAnswerClick(options[1])}>{options[1]}</button>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-sm-6 options'>
-                                <button id="btn3" type="button" className="btn btn-info" value={options[2]} onClick={() => this.handleAnswerClick(options[2])}>{options[2]}</button>
+                                <button id="btn3" type="button" className="btn btn-info" value={options[2]}
+                                        onClick={() => this.handleAnswerClick(options[2])}>{options[2]}</button>
                             </div>
                             <div className='col-md-6 col-sm-6 options'>
-                                <button id="btn4" type="button" className="btn btn-info" value={options[3]} onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
+                                <button id="btn4" type="button" className="btn btn-info" value={options[3]}
+                                        onClick={() => this.handleAnswerClick(options[3])}>{options[3]}</button>
                             </div>
                         </div>
                     </div>
@@ -179,4 +183,5 @@ class NameTheFlagGame extends Component {
         )
     }
 }
+
 export default NameTheFlagGame;

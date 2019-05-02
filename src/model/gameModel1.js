@@ -1,10 +1,12 @@
+import * as firebase from 'firebase';
+
 const gameModel1 = function () {
     let finalScore = 0;
     let finalTime = 0;
     let finalContinent = "";
-    let finalResults = {};
 
 
+    // Getter methods
     this.getFinalScore = function(){
         return finalScore;
     };
@@ -17,9 +19,6 @@ const gameModel1 = function () {
         return finalContinent;
     };
 
-    this.getFinalResults= function(){
-        return finalResults;
-    };
 
     this.getAllCountries = function(continent){
         console.log("Got to get all countries");
@@ -114,15 +113,24 @@ const gameModel1 = function () {
 
 
     this.endGame = function(startTime, stateContinent, newScore, results, props){
-        // let time = this.getTime(startTime);
         sessionStorage.setItem("results", JSON.stringify(results));
         finalTime = this.getTime(startTime);
         finalScore = newScore;
         finalContinent = stateContinent;
-        finalResults = JSON.stringify(results);
         props.history.push('/EndScreen');
-    }
+    };
 
+
+    //Test of db methods
+    this.writeUserData = function(game, region, name, score, time) {
+        const database = firebase.database();
+        let ref = database.ref().child(game).child(region);
+        ref.push().set({
+            name: name,
+            score: score,
+            time: time
+        });
+    }
 };
 
 export const modelInstance1 = new gameModel1();
