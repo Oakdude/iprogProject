@@ -8,6 +8,7 @@
     "react": "^16.8.4",
     "react-compound-timer": "^1.0.12",
     "react-dom": "^16.8.4",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^4.4.0",
     "react-scripts": "2.1.8",
     "react-simple-maps": "^0.12.1",

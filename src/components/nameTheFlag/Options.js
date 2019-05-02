@@ -26,7 +26,7 @@ const Flags = () => {
             </div>
         </div>
     )
-}
+};
 
 export default Flags;
 
