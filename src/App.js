@@ -3,6 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import NameTheFlag from './components/nameTheFlag/NameTheFlag'
 import NameTheFlagGame from './components/nameTheFlag/NameTheFlagGame'
+import NameTheFlagGame2 from './components/nameTheFlag/NameTheFlagGame2'
+
+import NameTheFlagGame3 from './components/nameTheFlag/NameTheFlagGame3'
+
 import PlaceTheFlag from './components/placeTheFlag/PlaceTheFlagNew'
 import PlaceTheFlag2 from './components/placeTheFlag/PlaceTheFlag'
 
@@ -12,9 +16,11 @@ import UserScore from './components/Scores/UserScore'
 import EndScreen from './components/EndScreen/EndScreen'
 import Scoreboard from './components/Scores/Scoreboard'
 import * as firebase from 'firebase';
+import {modelInstance} from "./model/gameModel";
 
 class App extends Component {
   render() {
+    // modelInstance.getCountries();
     return (
         <BrowserRouter>
           <div className="App">
@@ -23,6 +29,9 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/NameTheFlag" render={()=><NameTheFlag/>} />
               <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
+              <Route path="/NameTheFlagGame2/:continent" render = {(props) => <NameTheFlagGame2 {...props} />} />
+              <Route path="/NameTheFlagGame3/:continent" render = {(props) => <NameTheFlagGame3 {...props} />} />
+
               <Route path="/PlaceTheFlag" render={()=><PlaceTheFlag/>} />
               <Route path="/PlaceTheFlag2" render={()=><PlaceTheFlag2/>} />
 

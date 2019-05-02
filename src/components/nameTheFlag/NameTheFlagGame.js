@@ -4,6 +4,9 @@ import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import { builtinModules } from 'module';
 import Timer from "react-compound-timer"
+// import modelInstance from '../../model/gameModel'
+// import {initialiseGame} from '../../model/gameModel';
+
 
 class NameTheFlagGame extends Component {
     constructor(props) {
@@ -69,22 +72,22 @@ class NameTheFlagGame extends Component {
                 }
                 return list;
             })
-          .then(countries => {
-            let all = countries;
-            console.log(countries.length);
-            console.log(countries);
-            let answers = [];
-            while(answers.length < 10){
-                let country = this.getRandomArrayElement(countries);
-                if (answers.includes(country[0])){
-                    continue;
-                } else {
-                    answers.push(country[0]);
-                    countries.splice(country[1], 1);
-                
+            .then(countries => {
+                let all = countries;
+                console.log(countries.length);
+                console.log(countries);
+                let answers = [];
+                while(answers.length < 10){
+                    let country = this.getRandomArrayElement(countries);
+                    if (answers.includes(country[0])){
+                        continue;
+                    } else {
+                        answers.push(country[0]);
+                        countries.splice(country[1], 1);
+
+                    }
+
                 }
-                
-            }
             console.log("answers: ", answers);
                 let start = Date.now();
               this.setState({
@@ -99,7 +102,7 @@ class NameTheFlagGame extends Component {
               status: "ERROR"
             });
           });
-          
+
       }
 
 
@@ -281,7 +284,7 @@ class NameTheFlagGame extends Component {
                     <div className="col-md-3"></div>*/}
                 </div>
                 
-                
+                {/*loadar leiknum*/}
                 <div>{page}</div>
                 
             </div>
