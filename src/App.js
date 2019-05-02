@@ -7,6 +7,7 @@ import Home from './components/home/Home'
 import UserScore from './components/Scores/UserScore'
 import EndScreen from './components/EndScreen/EndScreen'
 import Scoreboard from './components/Scores/Scoreboard'
+import NameTheFlagGame3 from './components/nameTheFlag/NameTheFlagGame3'
 import * as firebase from 'firebase';
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/NameTheFlag" render={()=><NameTheFlag/>} />
-              <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
+              <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame3 {...props} />} />
               <Route path="/UserScore" render={()=><Scoreboard/>} />
               <Route path="/EndScreen" render={(props)=><EndScreen {...props}/>} />
             </Switch>
