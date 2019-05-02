@@ -21,13 +21,6 @@ const include =
      "SGP", "KOR", "LKA", "SYR", "TWN", "TJK", "THA", "TUR", "TKM", "ARE", "UZB", "VNM", "YEM", "RUS"]
 
 class BasicMap extends Component {
-
-    handleClick(geography, evt) {
-        console.log("Geography data: ", geography)
-
-
-    }
-
   render() {
     return (
 

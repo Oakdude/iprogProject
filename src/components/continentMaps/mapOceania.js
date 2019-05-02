@@ -15,12 +15,6 @@ const wrapperStyles = {
 
 class BasicMap extends Component {
 
-    handleClick(geography, evt) {
-        console.log("Geography data: ", geography.properties.IOS_A3)
-
-
-    }
-
   render() {
     return (
 

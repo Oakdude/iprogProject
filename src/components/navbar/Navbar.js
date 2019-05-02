@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SignedInLinks from './SignedInLinks'
 import Logo from './images/logo-white.png'
 import "../css/navbar.css"
 
@@ -19,7 +18,6 @@ const Navbar = () => {
                         aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <SignedInLinks />
             </div>
         </nav> 
     )
