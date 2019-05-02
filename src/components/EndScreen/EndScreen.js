@@ -6,7 +6,7 @@ import nameitflag from "../images/nameflagimg.jpg"
 import placeitflag from "../images/placeflagimg.jpg"
 import * as firebase from 'firebase';
 import clap from "../images/clapping.gif"
-import {modelInstance1} from "../../model/gameModel1";
+import {modelInstance1} from "../../model/gameModel";
 
 class EndScreen extends Component {
     constructor(props) {

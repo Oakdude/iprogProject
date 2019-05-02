@@ -1,11 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../css/style.css"
-import logo from "../navbar/images/logo-white.png"
 import nameitflag from "../images/nameflagimg.jpg"
 import placeitflag from "../images/placeflagimg.jpg"
-// import {initialiseGame} from '../../model/gameModel';
-import {modelInstance} from "../../model/gameModel";
 
 
 const Home = () => {

@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import NameTheFlag from './components/nameTheFlag/NameTheFlag'
-import NameTheFlagGame from './components/nameTheFlag/NameTheFlagGame'
 import Home from './components/home/Home'
-import UserScore from './components/Scores/UserScore'
 import EndScreen from './components/EndScreen/EndScreen'
 import Scoreboard from './components/Scores/Scoreboard'
-import NameTheFlagGame3 from './components/nameTheFlag/NameTheFlagGame3'
-import * as firebase from 'firebase';
+import NameTheFlagGame from './components/nameTheFlag/NameTheFlagGame'
 
 class App extends Component {
   render() {
@@ -19,7 +16,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/NameTheFlag" render={()=><NameTheFlag/>} />
-              <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame3 {...props} />} />
+              <Route path="/NameTheFlagGame/:continent" render = {(props) => <NameTheFlagGame {...props} />} />
               <Route path="/UserScore" render={()=><Scoreboard/>} />
               <Route path="/EndScreen" render={(props)=><EndScreen {...props}/>} />
             </Switch>
