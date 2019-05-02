@@ -4,7 +4,7 @@ import "../css/scoreBoard.css"
 import {Link} from "react-router-dom";
 //import fire from '../../fbConfig/fbConfig.js' 
 import * as firebase from 'firebase';
-import {modelInstance1} from "../../model/gameModel";
+import {modelInstance} from "../../model/gameModel";
 
 class Scoreboard extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Scoreboard extends Component {
         this.state = {
             // status: "LOADING",
             status:"LOADED",
-            scoresToShow:  modelInstance1.getScoresFromDatabase('nameTheFlag', 'world'),
+            scoresToShow:  modelInstance.getScoresFromDatabase('nameTheFlag', 'world'),
             region: "world",
             number: 1
         };
@@ -22,7 +22,7 @@ class Scoreboard extends Component {
     }
 
     componentDidMount() {
-        let scores =  modelInstance1.getScoresFromDatabase('nameTheFlag', 'world');
+        let scores =  modelInstance.getScoresFromDatabase('nameTheFlag', 'world');
 
         this.setState({
             scoresToShow: scores,
@@ -51,7 +51,7 @@ class Scoreboard extends Component {
 
     update() {
         // this.getScoresFromDatabase('nameTheFlag', this.state.region);
-        let scores = modelInstance1.getScoresFromDatabase();
+        let scores = modelInstance.getScoresFromDatabase();
         this.setState({
             scoresToShow: scores,
             status: "LOADED"

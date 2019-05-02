@@ -4,7 +4,7 @@ import "../css/nameTheFlag.css"
 import {Link} from "react-router-dom";
 import {builtinModules} from 'module';
 import Timer from "react-compound-timer"
-import {modelInstance1} from "../../model/gameModel";
+import {modelInstance} from "../../model/gameModel";
 
 
 class NameTheFlagGame extends Component {
@@ -24,7 +24,7 @@ class NameTheFlagGame extends Component {
     }
 
     fetchCountries() {
-        modelInstance1.getAllCountries(this.state.continent).then(data => {
+        modelInstance.getAllCountries(this.state.continent).then(data => {
             let list = [];
             for (let country of data) {
                 list.push([country.name, country.flag])
@@ -35,7 +35,7 @@ class NameTheFlagGame extends Component {
             let answers = [];
 
             while (answers.length < 10) {
-                let country = modelInstance1.getRandomArrayElement(countries);
+                let country = modelInstance.getRandomArrayElement(countries);
                 if (answers.includes(country[0])) {
                     continue;
                 } else {
@@ -80,7 +80,7 @@ class NameTheFlagGame extends Component {
 
         //Game is over after 10 rounds and switches to endscreen
         if (newCount === 10) {
-            modelInstance1.endGame(
+            modelInstance.endGame(
                 this.state.startTime,
                 this.state.continent,
                 newScore, results,
@@ -115,7 +115,7 @@ class NameTheFlagGame extends Component {
             case "LOADED":
 
                 // let game = this.setGame();
-                let game = modelInstance1.setGame(this.state.answers[0], this.state.countries);
+                let game = modelInstance.setGame(this.state.answers[0], this.state.countries);
 
                 let answerName = game[0];
                 let answerFlag = game[1];

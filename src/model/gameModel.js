@@ -148,5 +148,5 @@ const gameModel = function () {
 
 };
 
-export const modelInstance1 = new gameModel();
+export const modelInstance = new gameModel();
 

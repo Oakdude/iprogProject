@@ -1,12 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import "../css/style.css"
-import logo from "../navbar/images/logo-white.png"
-import nameitflag from "../images/nameflagimg.jpg"
-import placeitflag from "../images/placeflagimg.jpg"
-import * as firebase from 'firebase';
-import clap from "../images/clapping.gif"
-import {modelInstance1} from "../../model/gameModel";
+import {modelInstance} from "../../model/gameModel";
 
 class EndScreen extends Component {
     constructor(props) {
@@ -14,24 +9,14 @@ class EndScreen extends Component {
 
         // we put on state the properties we want to use and modify in the component
         this.state = {
-            continent: modelInstance1.getFinalContinent(),
-            score: modelInstance1.getFinalScore(),
-            time: modelInstance1.getFinalTime(),
+            continent: modelInstance.getFinalContinent(),
+            score: modelInstance.getFinalScore(),
+            time: modelInstance.getFinalTime(),
             results: JSON.parse(sessionStorage.getItem("results")),
             username: ""
         };
     }
 
-
-    // static writeUserData(game, region, name, score, time) {
-    //   const database = firebase.database();
-    //   let ref = database.ref().child(game).child(region);
-    //   ref.push().set({
-    //     name: name,
-    //     score: score,
-    //     time: time
-    //   });
-    // }
 
     handleChange = event => {
         this.setState({username: event.target.value});
@@ -39,7 +24,7 @@ class EndScreen extends Component {
 
     handleSubmit = event => {
         if (this.state.username !== "" && this.state.score === "10") {
-            modelInstance1.writeUserData("nameTheFlag", this.state.continent, this.state.username, this.state.score, this.state.time);
+            modelInstance.writeUserData("nameTheFlag", this.state.continent, this.state.username, this.state.score, this.state.time);
         }
     };
 
