@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker'
 import * as firebase from 'firebase';
+import store from "./redux/store";
+// import initialiseDatabase from "./redux/actions";
 
 var config = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -16,6 +18,9 @@ var config = {
  firebase.initializeApp(config);
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+
+// store.dispatch(initialiseDatabase());
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
