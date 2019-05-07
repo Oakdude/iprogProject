@@ -42,8 +42,6 @@ const gameModel = function () {
     };
 
     this.handleError  = function (error){
-        // console.log("got to error handling");
-
         if (error.json) {
             error.json().then(error => {
                 console.error('getAllDishes() API Error:', error.message || error)
@@ -141,7 +139,6 @@ const gameModel = function () {
             scores.push(snapshot.val());
         });
 
-        // console.log("SCORES " + scores);
         return scores;
     };
 };

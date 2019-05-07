@@ -12,7 +12,8 @@
     "react-router-dom": "^4.4.0",
     "react-scripts": "2.1.8",
     "react-simple-maps": "^0.12.1",
-    "react-timer-machine": "^1.0.2"
+    "react-timer-machine": "^1.0.2",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
