@@ -13,6 +13,9 @@ const Navbar = () => {
                          className="d-inline-block align-top navLogo" alt="Logo"/>
                          Flagmaster
                 </Link>
+                <Link to={'/UserScore'} className="navbar-brand">
+                    Scoreboard
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                         aria-label="Toggle navigation">
